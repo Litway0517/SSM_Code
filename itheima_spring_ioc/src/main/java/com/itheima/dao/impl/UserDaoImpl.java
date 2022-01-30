@@ -10,6 +10,13 @@ import com.itheima.dao.UserDao;
  */
 public class UserDaoImpl implements UserDao {
 
+    /**
+     * 无参构造方法
+     * 无参构造方法被调用一次, 那么这个Bean对象就被创建一次
+     */
+    public UserDaoImpl() {
+        System.out.println("UserDaoImpl创建....");
+    }
 
     /**
      * 保存
