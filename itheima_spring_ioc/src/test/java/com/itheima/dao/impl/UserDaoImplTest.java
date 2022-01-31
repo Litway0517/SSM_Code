@@ -6,8 +6,17 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
+/**
+ * 用户DAOImpl测试
+ *
+ * @author DELL_
+ * @date 2022/01/31
+ */
 public class UserDaoImplTest {
 
+    /**
+     * 保存
+     */
     @Test
     public void save() {
 
@@ -33,4 +42,21 @@ public class UserDaoImplTest {
         userDao.save();
 
     }
+
+    /**
+     * save2
+     */
+    @Test
+    public void save2() {
+        // ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+        // UserDao user = (UserDao) app.getBean("userDao");
+
+        // 将app直接创建为ClassPathXmlApplicationContext
+        ClassPathXmlApplicationContext app2 = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserDao userDao = (UserDao) app2.getBean("userDao");
+        userDao.save();
+        app2.close();
+    }
+
+
 }
