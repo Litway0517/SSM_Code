@@ -3,6 +3,14 @@
         xmlns="http://www.springframework.org/schema/beans"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+        ==================================================
+        下面为了测试方便, 又不注掉每一个bean标签的配置,
+        所以均使用了prototype方式, 否则容器创建的同事就会创建Bean
+        ==================================================
+
+    -->
+
 
     <!--
         配置bean
@@ -18,7 +26,7 @@
 
 
     <!-- 静态工厂创建 -> 这个是singleton模式 所以会自动创建 -->
-    <bean id="userDao2" class="com.itheima.factory.StaticFactory" factory-method="getUserDao" />
+    <bean id="userDao2" class="com.itheima.factory.StaticFactory" factory-method="getUserDao" scope="prototype" />
 
 
     <!--
@@ -28,7 +36,16 @@
         去哪一个工厂找哪一个方法.
     -->
     <bean id="factory" class="com.itheima.factory.DynamicFactory" />
-    <bean id="userDao3" factory-bean="factory" factory-method="getUserDao" />
+    <bean id="userDao3" factory-bean="factory" factory-method="getUserDao" scope="prototype"/>
+
+
+    <!-- 重新配置一个userDao -> 解耦service层调用DAO层时的实例化 -->
+    <bean id="userDaoNew" class="com.itheima.dao.impl.UserDaoImpl" scope="prototype" />
+    <!-- 再配置一个userService  解耦controller层调用service层时的实例化 -->
+    <bean id="userService" class="com.itheima.service.impl.UserServiceImpl" scope="prototype" />
+
+
+
 
 
 </beans>
