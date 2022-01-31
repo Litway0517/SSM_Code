@@ -17,4 +17,8 @@
     <!-- 为了测试这里面的创建时机, 我们去复写UserDaoImpl中的构造方法 -->
 
 
+    <!-- 静态工厂创建 -->
+    <bean id="userDao2" class="com.itheima.factory.StaticFactory" factory-method="getUserDao" />
+
+
 </beans>
