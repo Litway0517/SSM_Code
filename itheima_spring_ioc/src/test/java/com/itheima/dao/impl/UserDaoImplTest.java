@@ -53,9 +53,31 @@ public class UserDaoImplTest {
 
         // 将app直接创建为ClassPathXmlApplicationContext
         ClassPathXmlApplicationContext app2 = new ClassPathXmlApplicationContext("applicationContext.xml");
-        UserDao userDao = (UserDao) app2.getBean("userDao");
+        UserDao userDao = (UserDao) app2.getBean("userDao2");
         userDao.save();
         app2.close();
+    }
+
+
+    /**
+     * 测试静态工厂
+     */
+    @Test
+    public void testStaticFactory() {
+        ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserDao userDao = (UserDao) app.getBean("userDao2");
+
+
+    }
+
+    /**
+     * 测试动态工厂
+     */
+    @Test
+    public void testDynamicFactory() {
+        ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserDao userDao = (UserDao) app.getBean("userDao3");
+
     }
 
 
