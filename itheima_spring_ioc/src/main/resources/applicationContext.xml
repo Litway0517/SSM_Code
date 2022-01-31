@@ -4,8 +4,21 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- 配置bean -->
-    <bean id="userDao" class="com.itheima.dao.impl.UserDaoImpl"></bean>
+    <!--
+        配置bean
+        下面这种配置, spring回去找Bean对应的无参构造方法
+        当没有定义构造方法时每个类里都有一个默认的无参的构造方法，此时该类就只有一个构造方法;
+        而当你显示定义类的构造方法时，那就没有那个默认的构造方法了，该类所以的构造方法就是定义了的那些构造方法;
+     -->
+    <!--<bean id="userDao" class="com.itheima.dao.impl.UserDaoImpl" scope="prototype"
+          init-method="init" destroy-method="destroy"
+    />-->
+
+    <!-- 为了测试这里面的创建时机, 我们去复写UserDaoImpl中的构造方法 -->
+
+
+    <!-- 静态工厂创建 -->
+    <bean id="userDao" class="com.itheima.factory.StaticFactory" factory-method="getUserDao" />
 
 
 </beans>
