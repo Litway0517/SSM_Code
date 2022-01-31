@@ -10,7 +10,9 @@
         当没有定义构造方法时每个类里都有一个默认的无参的构造方法，此时该类就只有一个构造方法;
         而当你显示定义类的构造方法时，那就没有那个默认的构造方法了，该类所以的构造方法就是定义了的那些构造方法;
      -->
-    <bean id="userDao" class="com.itheima.dao.impl.UserDaoImpl" scope="prototype" />
+    <bean id="userDao" class="com.itheima.dao.impl.UserDaoImpl" scope="prototype"
+          init-method="init" destroy-method="destroy"
+    />
 
     <!-- 为了测试这里面的创建时机, 我们去复写UserDaoImpl中的构造方法 -->
 
