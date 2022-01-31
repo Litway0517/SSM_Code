@@ -17,6 +17,7 @@ public class StaticFactory {
      * @return {@link UserDao}
      */
     public static UserDao getUserDao() {
+        System.out.println("通过静态工厂去创建Bean...");
         return new UserDaoImpl();
     }
 
