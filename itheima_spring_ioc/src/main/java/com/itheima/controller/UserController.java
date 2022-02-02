@@ -1,5 +1,6 @@
 package com.itheima.controller;
 
+import com.itheima.dao.impl.UserDaoImpl;
 import com.itheima.service.UserService;
 import com.itheima.service.impl.UserServiceImpl;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
