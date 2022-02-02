@@ -25,7 +25,7 @@
     <!-- 为了测试这里面的创建时机, 我们去复写UserDaoImpl中的构造方法 -->
 
 
-    <!-- 静态工厂创建 -> 这个是singleton模式 所以会自动创建 -->
+    <!-- 静态工厂创建 -> 这个是singleton模式 所以会自动创建(改成了prototype模式) -->
     <bean id="userDao2" class="com.itheima.factory.StaticFactory" factory-method="getUserDao" scope="prototype" />
 
 
@@ -43,6 +43,8 @@
     <bean id="userDaoNew" class="com.itheima.dao.impl.UserDaoImpl" scope="prototype" />
     <!-- 再配置一个userService  解耦controller层调用service层时的实例化 -->
     <bean id="userService" class="com.itheima.service.impl.UserServiceImpl" scope="prototype" />
+
+
 
 
 
