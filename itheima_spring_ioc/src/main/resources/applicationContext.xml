@@ -15,7 +15,7 @@
 
     <!--
         配置bean
-        下面这种配置, spring回去找Bean对应的无参构造方法
+        下面这种配置, spring会去找Bean对应的无参构造方法
         当没有定义构造方法时每个类里都有一个默认的无参的构造方法，此时该类就只有一个构造方法;
         而当你显示定义类的构造方法时，那就没有那个默认的构造方法了，该类所以的构造方法就是定义了的那些构造方法;
      -->
@@ -36,8 +36,8 @@
         factory-method -> 当找到了工厂是, 再去该工厂内部找方法.
         去哪一个工厂找哪一个方法.
     -->
-    <bean id="factory" class="com.itheima.factory.DynamicFactory" />
-    <bean id="userDao3" factory-bean="factory" factory-method="getUserDao" scope="prototype"/>
+    <bean id="userDaoDynamicFactory" class="com.itheima.factory.DynamicFactory" />
+    <bean id="userDao3" factory-bean="userDaoDynamicFactory" factory-method="getUserDao" scope="prototype"/>
 
 
     <!-- 重新配置一个userDao -> 解耦service层调用DAO层时的实例化 -->
@@ -64,8 +64,8 @@
     <bean id="userService2" class="com.itheima.service.impl.UserServiceImpl" scope="prototype" >
         <!--
             这里的name和上面的馁个property的name元素不一样
-            name: 指的是构造方法的参数的名称.
-            ref:　表示的是引用
+            name: 指的是含参构造方法中的参数的名称.
+            ref:　表示的是引用. 指的是该参数是属于什么类型的, 切需要已经存在容器中了才可以, 例如这个userDaoNew2已经配置在下面了
          -->
         <constructor-arg name="userDao" ref="userDaoNew2" />
     </bean>
@@ -73,9 +73,50 @@
 
     <!-- 测试注入普通数据类型 -->
     <bean id="userDaoNew2" class="com.itheima.dao.impl.UserDaoImpl" scope="prototype" >
-        <property name="name" value="zhangsan" />
+        <!-- 注入UserDaoImpl类中的username成员变量 值为zhangsan -->
+        <property name="userName" value="zhangsan" />
+        <!-- 注入UserDaoImpl类中的age成员变量 为18 -->
         <property name="age" value="18" />
+        <!-- 注入UserDaoImpl类中的strList成员变量 值需要写在list标签下的value子标签 -->
+        <property name="strList">
+            <list>
+                <value>test1</value>
+                <value>test2</value>
+            </list>
+        </property>
+        <!--
+            注入UserDaoImpl类中的userMap成员变量
+            key为string类型, 可以直接写上.
+            value为一个引用类型, 因此需要写上目前容器中已经存在的Bean 所以需要配置
+        -->
+        <property name="userMap">
+            <map>
+                <entry key="u1" value-ref="user1" />
+                <entry key="u2" value-ref="user2" />
+            </map>
+        </property>
+        <!-- 注入UserDaoImpl类中的Properties成员变量  -->
+        <property name="properties" >
+            <props>
+                <prop key="p1">ppp1</prop>
+                <prop key="p2">ppp2</prop>
+            </props>
+        </property>
+    </bean>
 
+    <!-- 这两个bean是用来给上面的配置使用的 -->
+    <bean id="user1" class="com.itheima.domain.User">
+        <!--
+            这里面又是属于普通数据的注入
+            name元素: 是setter方法的不取set单词的后面部分 如: setUserName -> userName
+            value元素: 即对应的值
+        -->
+        <property name="name" value="tom" />
+        <property name="addr" value="山东 枣庄" />
+    </bean>
+    <bean id="user2" class="com.itheima.domain.User">
+        <property name="name" value="lucy" />
+        <property name="addr" value="江苏 徐州" />
     </bean>
 
 
