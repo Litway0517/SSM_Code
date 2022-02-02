@@ -10,7 +10,36 @@ import com.itheima.dao.UserDao;
  */
 public class UserDaoImpl implements UserDao {
 
+
     /**
+     * 名字
+     */
+    private String name;
+    /**
+     * 年龄
+     */
+    private Integer age;
+
+    /**
+     * 集名称
+     *
+     * @param name 名字
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * 设定年龄
+     *
+     * @param age 年龄
+     */
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    /**
+     * 用户DAOImpl
      * 无参构造方法
      * 无参构造方法被调用一次, 那么这个Bean对象就被创建一次
      */
@@ -34,6 +63,7 @@ public class UserDaoImpl implements UserDao {
 
 
     /**
+     * 摧毁
      * 销毁
      */
     public void destroy() {
