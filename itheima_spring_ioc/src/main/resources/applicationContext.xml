@@ -46,7 +46,8 @@
     <bean id="userService" class="com.itheima.service.impl.UserServiceImpl" scope="prototype" >
         <!--
             我们在userServiceImpl中写了一个成员变量, 就是userDao, 但是这里面需要依赖注入, 元素的说明见下:
-            name元素的值为: userServiceImpl中的setter方法的后半部分, 切首字母小写. 例如: setUserDao -> userDao
+            name元素的值为: 实际上就是属性名称
+                          userServiceImpl中的setter方法的后半部分, 切首字母小写. 例如: setUserDao -> userDao
             ref元素: 用来唯一标识.
         -->
         <!-- 依赖注入 -->
