@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans
         xmlns="http://www.springframework.org/schema/beans"
+        xmlns:p="http://www.springframework.org/schema/p"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!--
@@ -48,8 +49,14 @@
             name元素的值为: userServiceImpl中的setter方法的后半部分, 切首字母小写. 例如: setUserDao -> userDao
             ref元素: 用来唯一标识.
         -->
+        <!-- 依赖注入 -->
         <property name="userDao" ref="userDaoNew" />
     </bean>
+
+
+    <!-- 使用p命名空间注入 本质还是set方法 -->
+    <bean id="userService1" class="com.itheima.service.impl.UserServiceImpl" scope="prototype"
+          p:userDao-ref="userDaoNew" />
 
 
 
