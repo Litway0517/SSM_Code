@@ -120,6 +120,10 @@
     </bean>
 
 
+    <!-- 当spring加载主配置文件时 这些配置文件也会被一同加载 -->
+    <import resource="applicationContext-product.xml" />
+    <import resource="applicationContext-user.xml" />
+
 
 
 
