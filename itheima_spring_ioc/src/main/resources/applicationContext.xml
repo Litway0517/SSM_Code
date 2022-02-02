@@ -50,14 +50,25 @@
             ref元素: 用来唯一标识.
         -->
         <!-- 依赖注入 -->
-        <property name="userDao" ref="userDaoNew" />
+        <!--<property name="userDao" ref="userDaoNew" />-->
     </bean>
 
 
     <!-- 使用p命名空间注入 本质还是set方法 -->
+    <!--
     <bean id="userService1" class="com.itheima.service.impl.UserServiceImpl" scope="prototype"
           p:userDao-ref="userDaoNew" />
+    -->
 
+
+    <bean id="userService2" class="com.itheima.service.impl.UserServiceImpl" scope="prototype" >
+        <!--
+            这里的name和上面的馁个property的name元素不一样
+            name: 指的是构造方法的参数的名称.
+            ref:　表示的是引用
+         -->
+        <constructor-arg name="userDao" ref="userDaoNew" />
+    </bean>
 
 
 
