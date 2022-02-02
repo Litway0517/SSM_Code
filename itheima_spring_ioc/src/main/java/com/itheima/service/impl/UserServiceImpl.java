@@ -2,7 +2,6 @@ package com.itheima.service.impl;
 
 import com.itheima.dao.UserDao;
 import com.itheima.service.UserService;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * 用户服务Impl
@@ -15,7 +14,16 @@ public class UserServiceImpl implements UserService {
     // 创建一个UserDao
     private UserDao userDao;
     // 通过setter方法设置这个userDao
-    public void setUserDao(UserDao userDao) {
+    /*public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }*/
+
+    // 无参构造
+    public UserServiceImpl() {
+    }
+
+    // 有参构造 参数是DAO层
+    public UserServiceImpl(UserDao userDao) {
         this.userDao = userDao;
     }
 
