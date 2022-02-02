@@ -14,7 +14,7 @@ public class UserDaoImpl implements UserDao {
     /**
      * 名字
      */
-    private String name;
+    private String username;
     /**
      * 年龄
      */
@@ -26,7 +26,7 @@ public class UserDaoImpl implements UserDao {
      * @param name 名字
      */
     public void setName(String name) {
-        this.name = name;
+        this.username = name;
     }
 
     /**
@@ -51,6 +51,7 @@ public class UserDaoImpl implements UserDao {
      * 保存
      */
     public void save() {
+        System.out.println(username + "=" + age);
         System.out.println("save running......");
     }
 
