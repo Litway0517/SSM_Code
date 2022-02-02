@@ -27,8 +27,8 @@ public class UserController {
 
 
         // 如果直接new一个service层, 那么将会是空指针, 因为没有userDao层
-        UserServiceImpl userService = new UserServiceImpl();
-        userService.save();
+        // UserServiceImpl userService = new UserServiceImpl();
+        // userService.save();
 
     }
 }
