@@ -67,7 +67,15 @@
             name: 指的是构造方法的参数的名称.
             ref:　表示的是引用
          -->
-        <constructor-arg name="userDao" ref="userDaoNew" />
+        <constructor-arg name="userDao" ref="userDaoNew2" />
+    </bean>
+
+
+    <!-- 测试注入普通数据类型 -->
+    <bean id="userDaoNew2" class="com.itheima.dao.impl.UserDaoImpl" scope="prototype" >
+        <property name="name" value="zhangsan" />
+        <property name="age" value="18" />
+
     </bean>
 
 
