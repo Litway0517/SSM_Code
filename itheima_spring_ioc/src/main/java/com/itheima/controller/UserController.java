@@ -3,7 +3,9 @@ package com.itheima.controller;
 import com.itheima.dao.impl.UserDaoImpl;
 import com.itheima.service.UserService;
 import com.itheima.service.impl.UserServiceImpl;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 /**
  * 用户控制器
@@ -20,9 +22,15 @@ public class UserController {
             userServiceImpl.save();
         */
 
+        /*
+            ClassPathXmlApplicationContext 是从resources文件夹下读取配置文件 因此只需要给出配置文件的名称即可
+            FileSystemXmlApplicationContext 是可以读取系统上任意地方的配置文件 因此需要给出全地址
+         */
+
 
         // 使用spring解耦
         ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext app2 = new FileSystemXmlApplicationContext("F:\\IDEA-Java\\07-HM-SSM\\SSM_Code\\itheima_spring_ioc\\src\\main\\resources\\applicationContext.xml");
         UserServiceImpl userServiceImpl = (UserServiceImpl) app.getBean("userService2");
         userServiceImpl.save();
 
