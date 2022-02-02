@@ -71,4 +71,17 @@ public class User {
     public void setAddr(String addr) {
         this.addr = addr;
     }
+
+    /**
+     * 字符串
+     *
+     * @return {@link String}
+     */
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", addr='" + addr + '\'' +
+                '}';
+    }
 }
