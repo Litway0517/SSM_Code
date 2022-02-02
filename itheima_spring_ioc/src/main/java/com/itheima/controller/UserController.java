@@ -25,5 +25,10 @@ public class UserController {
         UserServiceImpl userServiceImpl = (UserServiceImpl) app.getBean("userService");
         userServiceImpl.save();
 
+
+        // 如果直接new一个service层, 那么将会是空指针, 因为没有userDao层
+        UserServiceImpl userService = new UserServiceImpl();
+        userService.save();
+
     }
 }
