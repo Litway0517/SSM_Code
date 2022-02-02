@@ -30,9 +30,13 @@ public class UserController {
 
         // 使用spring解耦
         ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
-        ApplicationContext app2 = new FileSystemXmlApplicationContext("F:\\IDEA-Java\\07-HM-SSM\\SSM_Code\\itheima_spring_ioc\\src\\main\\resources\\applicationContext.xml");
+        // ApplicationContext app2 = new FileSystemXmlApplicationContext("F:\\IDEA-Java\\07-HM-SSM\\SSM_Code\\itheima_spring_ioc\\src\\main\\resources\\applicationContext.xml");
         UserServiceImpl userServiceImpl = (UserServiceImpl) app.getBean("userService2");
         userServiceImpl.save();
+
+        // 通过字节码对象去查找 但是超过两个时会报错
+        UserServiceImpl userService = app.getBean(UserServiceImpl.class);
+        userService.save();
 
 
         // 如果直接new一个service层, 那么将会是空指针, 因为没有userDao层
