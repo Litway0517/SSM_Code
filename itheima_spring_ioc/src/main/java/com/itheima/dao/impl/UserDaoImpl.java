@@ -1,6 +1,11 @@
 package com.itheima.dao.impl;
 
 import com.itheima.dao.UserDao;
+import com.itheima.domain.User;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
 /**
  * 用户DAOImpl
@@ -9,10 +14,24 @@ import com.itheima.dao.UserDao;
  * @date 2022/01/30
  */
 public class UserDaoImpl implements UserDao {
+    /**
+     * str列表
+     */
+    private List<String> strList;
+
+    /**
+     * 用户映射
+     */
+    private Map<String, User> userMap;
+
+    /**
+     * 属性
+     */
+    private Properties properties;
 
 
     /**
-     * 名字
+     * 用户名
      */
     private String username;
     /**
@@ -23,10 +42,10 @@ public class UserDaoImpl implements UserDao {
     /**
      * 集名称
      *
-     * @param name 名字
+     * @param username 名字
      */
-    public void setName(String name) {
-        this.username = name;
+    public void setUserName(String username) {
+        this.username = username;
     }
 
     /**
@@ -36,6 +55,33 @@ public class UserDaoImpl implements UserDao {
      */
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    /**
+     * str设置列表
+     *
+     * @param strList str列表
+     */
+    public void setStrList(List<String> strList) {
+        this.strList = strList;
+    }
+
+    /**
+     * 设置用户地图
+     *
+     * @param userMap 用户映射
+     */
+    public void setUserMap(Map<String, User> userMap) {
+        this.userMap = userMap;
+    }
+
+    /**
+     * 设置属性
+     *
+     * @param properties 属性
+     */
+    public void setProperties(Properties properties) {
+        this.properties = properties;
     }
 
     /**
@@ -52,6 +98,9 @@ public class UserDaoImpl implements UserDao {
      */
     public void save() {
         System.out.println(username + "=" + age);
+        System.out.println("列表 -> " + strList + "\n" +
+                            "集合 -> " + userMap + "\n" +
+                            "properties -> " + properties);
         System.out.println("save running......");
     }
 
