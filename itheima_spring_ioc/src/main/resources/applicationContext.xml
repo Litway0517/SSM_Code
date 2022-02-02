@@ -42,7 +42,14 @@
     <!-- 重新配置一个userDao -> 解耦service层调用DAO层时的实例化 -->
     <bean id="userDaoNew" class="com.itheima.dao.impl.UserDaoImpl" scope="prototype" />
     <!-- 再配置一个userService  解耦controller层调用service层时的实例化 -->
-    <bean id="userService" class="com.itheima.service.impl.UserServiceImpl" scope="prototype" />
+    <bean id="userService" class="com.itheima.service.impl.UserServiceImpl" scope="prototype" >
+        <!--
+            我们在userServiceImpl中写了一个成员变量, 就是userDao, 但是这里面需要依赖注入, 元素的说明见下:
+            name元素的值为: userServiceImpl中的setter方法的后半部分, 切首字母小写. 例如: setUserDao -> userDao
+            ref元素: 用来唯一标识.
+        -->
+        <property name="userDao" ref="userDaoNew" />
+    </bean>
 
 
 
