@@ -22,7 +22,7 @@ public class UserController {
 
         // 使用spring解耦
         ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
-        UserServiceImpl userServiceImpl = (UserServiceImpl) app.getBean("userService");
+        UserServiceImpl userServiceImpl = (UserServiceImpl) app.getBean("userService2");
         userServiceImpl.save();
 
 
