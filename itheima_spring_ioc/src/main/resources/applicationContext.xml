@@ -74,19 +74,22 @@
 
     <!-- 测试注入普通数据类型 -->
     <bean id="userDaoNew2" class="com.itheima.dao.impl.UserDaoImpl" scope="prototype" >
-        <!-- 注入UserDaoImpl类中的username成员变量 值为zhangsan -->
+        <!-- 注入UserDaoImpl类中的username(String)成员变量 值为zhangsan -->
         <property name="userName" value="zhangsan" />
-        <!-- 注入UserDaoImpl类中的age成员变量 为18 -->
+
+        <!-- 注入UserDaoImpl类中的age(Integer)成员变量 为18 -->
         <property name="age" value="18" />
-        <!-- 注入UserDaoImpl类中的strList成员变量 值需要写在list标签下的value子标签 -->
+
+        <!-- 注入UserDaoImpl类中的strList(List<String>)成员变量 值需要写在list标签下的value子标签 -->
         <property name="strList">
             <list>
                 <value>test1</value>
                 <value>test2</value>
             </list>
         </property>
+
         <!--
-            注入UserDaoImpl类中的userMap成员变量
+            注入UserDaoImpl类中的userMap(Map<String, UserDao>)成员变量
             key为string类型, 可以直接写上.
             value为一个引用类型, 因此需要写上目前容器中已经存在的Bean 所以需要配置
         -->
@@ -96,7 +99,8 @@
                 <entry key="u2" value-ref="user2" />
             </map>
         </property>
-        <!-- 注入UserDaoImpl类中的Properties成员变量  -->
+
+        <!-- 注入UserDaoImpl类中的Properties(Properties)成员变量  -->
         <property name="properties" >
             <props>
                 <prop key="p1">ppp1</prop>
@@ -124,6 +128,22 @@
     <!-- 当spring加载主配置文件时 这些配置文件也会被一同加载 -->
     <import resource="applicationContext-product.xml" />
     <import resource="applicationContext-user.xml" />
+
+
+
+    <!-- 练习: List<User>成员变量的注入 -->
+    <bean id="bookDaoImpl" class="com.itheima.dao.impl.BookDaoImpl" scope="prototype">
+        <property name="userList">
+            <list>
+                <bean class="com.itheima.domain.User" />
+                <ref bean="user1" />
+                <ref bean="user2" />
+            </list>
+        </property>
+
+    </bean>
+
+
 
 
 
