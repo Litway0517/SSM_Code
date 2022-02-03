@@ -135,9 +135,8 @@
     <bean id="bookDaoImpl" class="com.itheima.dao.impl.BookDaoImpl" scope="prototype">
         <property name="userList">
             <list>
-                <bean class="com.itheima.domain.User" />
+                <!-- 这里面直接给出引用 ref标签 bean填写容器中存在的id值 -->
                 <ref bean="user1" />
-                <ref bean="user2" />
             </list>
         </property>
 
