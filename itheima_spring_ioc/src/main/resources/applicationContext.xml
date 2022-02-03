@@ -62,6 +62,7 @@
     -->
 
 
+    <!-- 这个是使用含参构造方法 构造service层时将DAO层作为参数传入进来 这样就连同实例化了DAO层 -->
     <bean id="userService2" class="com.itheima.service.impl.UserServiceImpl" scope="prototype" >
         <!--
             这里的name和上面的馁个property的name元素不一样
@@ -140,7 +141,6 @@
                 <ref bean="user2" />
             </list>
         </property>
-
     </bean>
 
 
