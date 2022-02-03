@@ -9,7 +9,9 @@
   <version>1.0-SNAPSHOT</version>
 
 
+  <!-- 添加依赖 -->
   <dependencies>
+    <!-- 具体依赖内容 -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
