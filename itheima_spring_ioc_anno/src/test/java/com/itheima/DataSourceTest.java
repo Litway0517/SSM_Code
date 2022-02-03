@@ -1,9 +1,12 @@
 package com.itheima;
 
+import com.alibaba.druid.pool.DruidDataSource;
+import com.alibaba.druid.pool.DruidPooledConnection;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.junit.Test;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
  * 数据源测试
@@ -14,8 +17,7 @@ import java.sql.Connection;
 public class DataSourceTest {
 
     @Test
-    // 测试数据源
-    public void test1() throws Exception {
+    public void testC3P0() throws Exception {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
 
         // 设置四个必要参数
@@ -31,6 +33,21 @@ public class DataSourceTest {
 
         // 记着释放
         connection.close();
+    }
+
+
+    @Test
+    public void testDruid() throws SQLException {
+        DruidDataSource druidDataSource = new DruidDataSource();
+        druidDataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        druidDataSource.setUrl("jdbc:mysql://localhost:3306/test");
+        druidDataSource.setUsername("root");
+        druidDataSource.setPassword("root");
+
+        DruidPooledConnection connection = druidDataSource.getConnection();
+        System.out.println(connection);
+        connection.close();
+        // com.mysql.jdbc.JDBC4Connection@18ef96
     }
 
 
