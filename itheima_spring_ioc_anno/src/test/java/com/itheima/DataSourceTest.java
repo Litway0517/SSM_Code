@@ -4,7 +4,9 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidPooledConnection;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.junit.Test;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -78,6 +80,16 @@ public class DataSourceTest {
         Connection connection = c3p0.getConnection();
         System.out.println(connection);
         connection.close();
+    }
+
+
+    @Test
+    public void testC3P0BySpring() throws SQLException {
+        ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+        DataSource dataSourceByC3p0 = (DataSource) app.getBean("dataSourceByC3p0");
+        Connection conn = dataSourceByC3p0.getConnection();
+        System.out.println(conn);
+        conn.close();
     }
 
 
