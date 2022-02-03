@@ -1,6 +1,9 @@
 package com.itheima.dao.impl;
 
 import com.itheima.dao.BookDao;
+import com.itheima.domain.User;
+
+import java.util.List;
 
 /**
  * 书DAOImpl
@@ -10,6 +13,12 @@ import com.itheima.dao.BookDao;
  */
 public class BookDaoImpl implements BookDao {
 
+    // 成员变量
+    private List<User> userList;
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
 
     /**
      * 被书书id
