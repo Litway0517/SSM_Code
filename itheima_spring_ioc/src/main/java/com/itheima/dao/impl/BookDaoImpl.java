@@ -24,6 +24,7 @@ public class BookDaoImpl implements BookDao {
      * 被书书id
      */
     public void getBookByBookId() {
+        System.out.println(userList);
         System.out.println("查找图书...");
     }
 }
