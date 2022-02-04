@@ -17,6 +17,9 @@ public class UserController {
         UserServiceImpl userService = app.getBean(UserServiceImpl.class);
         userService.save();
 
+        // 手动关闭容器, 就会出现了销毁方法
+        app.close();
+
 
 
     }
