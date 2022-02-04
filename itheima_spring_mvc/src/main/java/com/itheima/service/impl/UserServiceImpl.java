@@ -1,5 +1,6 @@
 package com.itheima.service.impl;
 
+import com.itheima.dao.UserDao;
 import com.itheima.service.UserService;
 
 /**
@@ -9,6 +10,12 @@ import com.itheima.service.UserService;
  * @date 2022/02/04
  */
 public class UserServiceImpl implements UserService {
+
+
+    private UserDao userDao;
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     /**
      * 保存
