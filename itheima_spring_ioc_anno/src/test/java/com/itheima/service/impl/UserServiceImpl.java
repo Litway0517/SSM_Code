@@ -3,8 +3,11 @@ package com.itheima.service.impl;
 import com.itheima.dao.UserDao;
 import com.itheima.service.UserService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
 /**
@@ -19,6 +22,9 @@ import javax.annotation.Resource;
     同样的使用注解代替上面的xml配置信息
  */
 // @Component("userService")
+
+// @Scope("singleton")
+// @Scope("prototype")
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
@@ -59,6 +65,17 @@ public class UserServiceImpl implements UserService {
 
     }
 
+
+    @PostConstruct
+    public void initMethod() {
+
+        System.out.println("service创建了.....");
+    }
+
+    @PreDestroy
+    public void destroyMethod() {
+        System.out.println("service销毁.....");
+    }
 
 
 
