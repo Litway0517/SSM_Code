@@ -12,6 +12,14 @@
     -->
 
 
+    <!--
+        原始注解不能做的事情
+        - 非自定义的Bean不能加注解. 如果想加注解, 需要找到第三方提供方的jar包的源码 然后再加上注解 再重新编译成jar包再使用. 很麻烦
+        - 加载配置文件. 即<context:property-placeholder >标签不能替代
+        - 组件扫描配置标签. <context:component-scan>
+     -->
+
+
     <!-- 加载jdbc.properties配置文件 -->
     <context:property-placeholder location="classpath:jdbc.properties" />
 
