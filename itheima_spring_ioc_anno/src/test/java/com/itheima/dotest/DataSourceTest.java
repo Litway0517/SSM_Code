@@ -1,4 +1,4 @@
-package com.itheima;
+package com.itheima.dotest;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidPooledConnection;
