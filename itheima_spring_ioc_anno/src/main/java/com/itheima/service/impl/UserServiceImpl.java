@@ -5,6 +5,7 @@ import com.itheima.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * 用户服务Impl
@@ -17,7 +18,9 @@ import org.springframework.stereotype.Component;
     <bean id="userService" class="com.itheima.service.impl.UserServiceImpl" scope="prototype" />
     同样的使用注解代替上面的xml配置信息
  */
-@Component("userService")
+// @Component("userService")
+
+@Service("userService")
 public class UserServiceImpl implements UserService {
 
     // 创建一个DAO的实例, 采用setter方式注入DAO层. 这样实例化service层就会自动有DAO层
