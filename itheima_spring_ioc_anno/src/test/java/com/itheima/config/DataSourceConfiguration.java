@@ -40,6 +40,7 @@ public class DataSourceConfiguration {
 
 
     // spring会将当前方法的返回值以指定名称存储到spring容器中
+    // @Bean是注出
     @Bean("dataSource")
     public DataSource getDataSource() throws Exception {
         ComboPooledDataSource c3p0 = new ComboPooledDataSource();
