@@ -2,6 +2,7 @@ package com.itheima.service.impl;
 
 import com.itheima.dao.UserDao;
 import com.itheima.service.UserService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -21,6 +22,13 @@ import javax.annotation.Resource;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
+
+    // 为普通数据类型注入数据 -> 使用@Value注解
+    // @Value("Tom")
+    @Value("${jdbc.username}")      // 通过SpEL表达式注入到username字符串
+    private String username;
+
+
 
     // 创建一个DAO的实例, 采用setter方式注入DAO层. 这样实例化service层就会自动有DAO层
 
@@ -46,7 +54,13 @@ public class UserServiceImpl implements UserService {
      * 保存
      */
     public void save() {
+        System.out.println(username);
         userDao.save();
 
     }
+
+
+
+
+
 }
