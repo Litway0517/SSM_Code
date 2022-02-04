@@ -35,4 +35,14 @@
 
 
 
+    <!-- 配置DAO层 -->
+    <bean id="userDao" class="com.itheima.dao.impl.UserDaoImpl" scope="prototype" />
+    <!-- 配置service层 -->
+    <bean id="userService" class="com.itheima.service.impl.UserServiceImpl" scope="prototype" >
+        <!-- 注入DAO层 -->
+        <property name="userDao" ref="userDao" />
+    </bean>
+
+
+
 </beans>
