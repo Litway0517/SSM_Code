@@ -15,6 +15,6 @@ public class UserDaoImpl implements UserDao {
      * 保存
      */
     public void save() {
-        System.out.println("保存数据...");
+        System.out.println("save running...");
     }
 }
