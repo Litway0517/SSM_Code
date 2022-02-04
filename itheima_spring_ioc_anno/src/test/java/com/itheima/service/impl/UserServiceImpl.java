@@ -2,10 +2,9 @@ package com.itheima.service.impl;
 
 import com.itheima.dao.UserDao;
 import com.itheima.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * 用户服务Impl
@@ -32,13 +31,15 @@ public class UserServiceImpl implements UserService {
 
 
     /*
-        如果成员变量userDao上面仅有@Autowired注解 那么spring就会按照这个变量的类型到容器中去寻找.
+        如果成员变量userDao上面仅有@Autowired注解 那么spring就会按照这个变量的类型(UserDao类型)到容器中去寻找.
         此时userDaoImpl上面有@Repository注解(有注解spring就会帮助程序员创建这个Bean, 容器中就会有一个UserDaoImpl对象),
             那么就会注入到这个变量中. 但是如果spring容器中有两个UserDaoImpl实例对象, spring就不知道具体将哪一个注入给userDao
             成员变量. 因此需要加上@Qualifier("id标识") 来确定.
      */
-    @Autowired
-    @Qualifier("userDao")
+    // @Autowired
+    // @Qualifier("userDao")
+
+    @Resource(name="userDao")   // @Resource的注解作用相当于 @Autowired + @Qualifier
     private UserDao userDao;
 
     /**
