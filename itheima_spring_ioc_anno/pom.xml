@@ -41,6 +41,13 @@
       <version>5.0.5.RELEASE</version>
     </dependency>
 
+    <!-- 导入spring集成测试环境 -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>5.0.5.RELEASE</version>
+    </dependency>
+
   </dependencies>
 
 </project>
