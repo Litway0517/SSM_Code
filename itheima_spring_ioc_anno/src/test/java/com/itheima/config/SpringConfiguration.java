@@ -10,7 +10,7 @@ import org.springframework.context.annotation.PropertySource;
 import javax.sql.DataSource;
 import java.sql.Connection;
 
-// 加上注解 @Configuration 标名此类是Spring配置类
+// 加上注解 @Configuration 标识此类是Spring容器的核心配置类
 @Configuration
 
 // 配置扫描组件 以及 扫描范围
