@@ -8,12 +8,5 @@
     <!-- 配置userService层的bean标签 -->
     <bean id="userService" class="com.itheima.service.impl.UserServiceImpl" scope="prototype" />
 
-    <!-- 配置数据源 -->
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" scope="prototype" >
-        <property name="driverClass" value="${jdbc.driver}" />
-        <property name="jdbcUrl" value="${jdbc.url}" />
-        <property name="user" value="${jdbc.username}" />
-        <property name="password" value="${jdbc.password}" />
-    </bean>
 
 </beans>

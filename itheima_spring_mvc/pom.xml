@@ -43,6 +43,14 @@
             <version>3.1.0</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- 引入spring框架 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.0.5.RELEASE</version>
+        </dependency>
+
     </dependencies>
 
 </project>
