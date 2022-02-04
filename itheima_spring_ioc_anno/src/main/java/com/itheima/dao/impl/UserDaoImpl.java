@@ -1,6 +1,7 @@
 package com.itheima.dao.impl;
 
 import com.itheima.dao.UserDao;
+import org.springframework.stereotype.Component;
 
 /**
  * 用户DAOImpl
@@ -8,6 +9,13 @@ import com.itheima.dao.UserDao;
  * @author DELL_
  * @date 2022/02/04
  */
+
+/*
+    <bean id="userDao" class="com.itheima.dao.impl.UserDaoImpl" scope="prototype" />
+    这个标签表示的需要在spring容器中创建对象 具体创建的就是UserDaoImpl这个对象. 所以在这个类声明上加 @Component注解
+    ("userDao")  起到id元素的作用
+ */
+@Component("userDao")
 public class UserDaoImpl implements UserDao {
 
 
