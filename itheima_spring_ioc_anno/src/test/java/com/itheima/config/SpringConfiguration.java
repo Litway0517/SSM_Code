@@ -1,14 +1,14 @@
 package com.itheima.config;
 
-import com.mchange.v2.c3p0.ComboPooledDataSource;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 
-import javax.sql.DataSource;
-import java.sql.Connection;
+
+/**
+ * spring配置
+ *
+ * @author DELL_
+ * @date 2022/02/04
+ */
 
 // 加上注解 @Configuration 标识此类是Spring容器的核心配置类
 @Configuration
@@ -17,41 +17,13 @@ import java.sql.Connection;
 // <context:component-scan base-package="com.itheima" />
 @ComponentScan("com.itheima")
 
-// 加载配置文件
-// <context:property-placeholder location="classpath:jdbc.properties" />
-@PropertySource("classpath:jdbc.properties")
+// 加载分配置文件
+// <import resource="" />
+@Import({DataSourceConfiguration.class})    // 参数是一个数组, 可以传递多个配置文件类
+
 public class SpringConfiguration {
 
 
-    // 使用普通数据注入的方式
-    // 使用spEL表达式获取配置文件中的参数配置
-    @Value("${jdbc.driver}")
-    private String driver;
-    @Value("${jdbc.url}")
-    private String url;
-    @Value("${jdbc.username}")
-    private String username;
-    @Value("${jdbc.password}")
-    private String password;
-
-
-
-    // spring会将当前方法的返回值以指定名称存储到spring容器中
-    @Bean("dataSource")
-    public DataSource getDataSource() throws Exception {
-        ComboPooledDataSource c3p0 = new ComboPooledDataSource();
-
-        c3p0.setDriverClass(driver);
-        c3p0.setJdbcUrl(url);
-        c3p0.setUser(username);
-        c3p0.setPassword(password);
-
-        Connection connection = c3p0.getConnection();
-        System.out.println(connection);
-        connection.close();
-
-        return (DataSource) connection;
-    }
 
 
 
