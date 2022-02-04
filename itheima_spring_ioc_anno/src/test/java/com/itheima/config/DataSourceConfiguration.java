@@ -53,7 +53,7 @@ public class DataSourceConfiguration {
         System.out.println(connection);
         connection.close();
 
-        return (DataSource) connection;
+        return c3p0;
     }
 
 }
