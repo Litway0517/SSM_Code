@@ -5,7 +5,15 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
 
-    <!-- 配置userSerlet的路由地址 -->
+    <!-- 全局初始化参数 -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+
+
+
+    <!-- 配置userServlet的路由地址 -->
     <servlet>
         <servlet-name>UserServlet</servlet-name>
         <servlet-class>com.itheima.web.UserServlet</servlet-class>

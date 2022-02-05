@@ -2,6 +2,7 @@ package com.itheima.web;
 
 
 import com.itheima.service.impl.UserServiceImpl;
+import com.itheima.utils.WebApplicationContextUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -23,7 +24,11 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletContext servletContext = req.getServletContext();
-        ApplicationContext app = (ClassPathXmlApplicationContext) servletContext.getAttribute("app");
+
+        // 直接使用工具类取出spring容器, 而不需要记住名称.
+        // ApplicationContext app = (ClassPathXmlApplicationContext) servletContext.getAttribute("app");
+
+        ApplicationContext app = WebApplicationContextUtils.getWebApplicationContext(servletContext);
         UserServiceImpl userServiceImpl = app.getBean(UserServiceImpl.class);
         userServiceImpl.save();
 
