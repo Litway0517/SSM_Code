@@ -41,7 +41,11 @@ public class UserController {
             之前是:
                 req.getDispatcher("/quick/...").forward(req, resp);
          */
-        return "/success.jsp";
+        // 将结果转发到success界面
+        return "forward:/success.jsp";
+
+        // 将结果重定向到success界面
+        // return "redirect:/success.jsp";
     }
 
 
