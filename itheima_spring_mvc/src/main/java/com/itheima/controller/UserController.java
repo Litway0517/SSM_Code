@@ -41,7 +41,7 @@ public class UserController {
             之前是:
                 req.getDispatcher("/quick/...").forward(req, resp);
          */
-        // 将结果转发到success界面
+        // 将结果转发到success界面. forward: 默认时转发行为, 即省略forward也是可以的. 但是如果需要进行重定向, 就必须加redirect:
         return "forward:/success.jsp";
 
 
