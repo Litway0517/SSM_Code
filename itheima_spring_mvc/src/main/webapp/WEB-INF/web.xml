@@ -15,4 +15,10 @@
         <url-pattern>/userServlet</url-pattern>
     </servlet-mapping>
 
+
+    <!-- 配置listener监听器 -->
+    <listener>
+        <listener-class>com.itheima.listener.ContextLoaderListener</listener-class>
+    </listener>
+
 </web-app>
