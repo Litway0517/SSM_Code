@@ -24,9 +24,17 @@
     </servlet-mapping>
 
 
-    <!-- 配置listener监听器 -->
+    <!-- 配置listener监听器 -> 这个是手动写的一个监听器 -->
+    <!--
     <listener>
         <listener-class>com.itheima.listener.ContextLoaderListener</listener-class>
+    </listener>
+    -->
+
+
+    <!-- 现在更改成spring-web框架的监听器 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
 </web-app>
