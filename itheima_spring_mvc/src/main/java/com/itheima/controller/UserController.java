@@ -3,12 +3,13 @@ package com.itheima.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 // 将控制器放到spring容器中
 @Controller
 
 // 增该类的路由基地址
-@RequestMapping(name = "/user")
+@RequestMapping("/user")
 public class UserController {
 
 
@@ -23,7 +24,7 @@ public class UserController {
             那么路由地址是 -> http://ip:port/xxx/quick
             即是类名称上面的地址 拼接 方法名字上的地址构成的.
      */
-    @RequestMapping("/quick")
+    @RequestMapping(value = "/quick", method = RequestMethod.GET, params = {"username"})
     public String save() {
         System.out.println("controller save running.....");
 
