@@ -11,6 +11,14 @@
      -->
     <context:component-scan  base-package="com.itheima.controller"/>
 
+    <!-- 另外一种配置方式 -->
+    <context:component-scan base-package="com.itheima" >
+        <!-- 这个标签表示的是, 扫描itheima包下面的 注解类型的 controller. 就是controller类型注解 -->
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <!-- 这个就是不扫描itheima包下面的@Service类型注解 -->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" />
+    </context:component-scan>
+
 
 
 </beans>
