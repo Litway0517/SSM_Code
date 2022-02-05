@@ -9,8 +9,15 @@
     <servlet>
         <servlet-name>DispatcherServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!-- 设置初始化参数传递给  DispatcherServlet 类(注意这个初始化参数的位置有坑 不能随便放) -->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring-mvc.xml</param-value>
+        </init-param>
         <!-- 表示第一次即创建改类 -->
         <load-on-startup>1</load-on-startup>
+
+
     </servlet>
     <servlet-mapping>
         <servlet-name>DispatcherServlet</servlet-name>
