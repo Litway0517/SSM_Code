@@ -21,6 +21,6 @@ public class UserServiceImpl implements UserService {
      * 保存
      */
     public void save() {
-
+        userDao.save();
     }
 }
