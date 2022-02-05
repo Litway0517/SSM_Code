@@ -42,10 +42,19 @@ public class UserController {
                 req.getDispatcher("/quick/...").forward(req, resp);
          */
         // 将结果转发到success界面
-        return "forward:/success.jsp";
+        // return "forward:/success.jsp";
+
 
         // 将结果重定向到success界面
         // return "redirect:/success.jsp";
+
+
+        /*
+            当注入了 内部资源视图解析器 的参数时: 就能够省略前缀后缀. 但是可读性很差.
+            原本的return地址: /jsp/success.jsp
+            配置之后的地址: success(这样一看就知道配置了前后缀, 所以需要查阅spring-mvc.xml配置文件)
+         */
+        return "success";
     }
 
 

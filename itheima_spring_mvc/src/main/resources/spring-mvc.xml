@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.alibaba.com/schema/stat"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.alibaba.com/schema/stat http://www.alibaba.com/schema/stat.xsd">
 
     <!--
-        配置注解扫描基础包
-        这里面, 只扫描controller下面的注解. 因为spring-mvc.xml文件只是给web层使用的. 所以只扫描controller包下面的注解.
-        这也是解耦思想. 其他的DAO service 放到applicationContext.xml文件扫描.
+        第一种配置扫描方式
+            配置注解扫描基础包
+            这里面, 只扫描controller下面的注解. 因为spring-mvc.xml文件只是给web层使用的. 所以只扫描controller包下面的注解.
+            这也是解耦思想. 其他的DAO service 放到applicationContext.xml文件扫描.
      -->
     <context:component-scan  base-package="com.itheima.controller"/>
 
-    <!-- 另外一种配置方式 -->
+    <!-- 第二种配置扫描方式 -->
     <context:component-scan base-package="com.itheima" >
         <!-- 这个标签表示的是, 扫描itheima包下面的 注解类型的 controller. 就是controller类型注解 -->
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
         <!-- 这个就是不扫描itheima包下面的@Service类型注解 -->
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" />
     </context:component-scan>
+
+
+    <!-- 这里面可以对 内部资源视图解析器InternalResourceViewResolve 注入其两个成员变量 这样在 <转发> 操作时更简洁 -->
+    <bean id="viewResolve" class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+        <property name="prefix" value="/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
 
 
 
