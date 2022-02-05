@@ -23,10 +23,10 @@
 
 
     <!-- 这里面可以对 内部资源视图解析器InternalResourceViewResolve 注入其两个成员变量 这样在 <转发> 操作时更简洁 -->
-    <bean id="viewResolve" class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+    <!--<bean id="viewResolve" class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
         <property name="prefix" value="/jsp/" />
         <property name="suffix" value=".jsp" />
-    </bean>
+    </bean>-->
 
 
 
