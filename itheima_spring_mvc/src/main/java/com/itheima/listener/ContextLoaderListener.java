@@ -26,6 +26,8 @@ public class ContextLoaderListener implements ServletContextListener {
         // 将spring上下文对象存储到最大的域中, 即application域
         ServletContext servletContext = servletContextEvent.getServletContext();
         servletContext.setAttribute("app", app);
+
+        System.out.println("spring容器创建完毕.....");
     }
 
     /**
