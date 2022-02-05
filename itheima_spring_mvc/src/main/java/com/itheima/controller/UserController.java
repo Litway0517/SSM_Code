@@ -23,8 +23,12 @@ public class UserController {
         - 在类名称上使用@RequestMapping("/xxx"). 并且方法名字上也是用@RequestMapping("/quick")
             那么路由地址是 -> http://ip:port/xxx/quick
             即是类名称上面的地址 拼接 方法名字上的地址构成的.
+
+        - params = {"username"} : 表示的是, 前端请求地址中参数中必须包含参数username=xxx
+            (http://ip:port/xxx/quick?username=xx)  否则报错.
      */
-    @RequestMapping(value = "/quick", method = RequestMethod.GET, params = {"username"})
+    // @RequestMapping(value = "/quick", method = RequestMethod.GET, params = {"username"})
+    @RequestMapping(value = "/quick", method = RequestMethod.GET)
     public String save() {
         System.out.println("controller save running.....");
 

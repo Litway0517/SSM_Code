@@ -16,8 +16,6 @@
         </init-param>
         <!-- 表示第一次即创建改类 -->
         <load-on-startup>1</load-on-startup>
-
-
     </servlet>
     <servlet-mapping>
         <servlet-name>DispatcherServlet</servlet-name>
