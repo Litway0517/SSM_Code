@@ -33,6 +33,12 @@ public class ContextLoaderListener implements ServletContextListener {
         ServletContext servletContext = servletContextEvent.getServletContext();
         String springConfiguration = servletContext.getInitParameter("contextConfigLocation");
         ApplicationContext app = new ClassPathXmlApplicationContext(springConfiguration);
+
+        /*
+            这个存储到域中的 key 的名称也被固定为app了. 封装一个Utils. 直接返回spring容器, 而不是根据名字返回容器.
+            以后直接使用工具获取spring容器而不是名字, 这样就不用再记着名字.
+         */
+
         // 将spring上下文对象存储到最大的域中, 即application域
         servletContext.setAttribute("app", app);
 
