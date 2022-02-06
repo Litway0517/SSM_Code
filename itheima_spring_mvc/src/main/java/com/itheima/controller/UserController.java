@@ -5,10 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 // 将控制器放到spring容器中
 @Controller
@@ -16,6 +18,31 @@ import javax.servlet.http.HttpServletRequest;
 // 增该类的路由基地址
 @RequestMapping("/user")
 public class UserController {
+
+    /*
+        注解@ResponseBody是通知spring-mvc框架不要进行页面跳转, 而是进行字符串回传.
+        响应头 响应行 响应体(ResponseBody) 自然是加上注解@ResponseBody
+     */
+    @RequestMapping("/quick7")
+    @ResponseBody
+    public String save7() {
+
+        return "Hello World";
+    }
+
+
+
+
+    /*
+        举一反三 再注入一个Response对象
+     */
+    @RequestMapping("/quick6")
+    public void save6(HttpServletResponse resp) throws IOException {
+        resp.setContentType("text/html; charset=UTF-8");
+        resp.getWriter().write("Hello world");
+    }
+
+
 
 
     /*
