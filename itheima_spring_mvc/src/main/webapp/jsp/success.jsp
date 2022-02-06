@@ -13,5 +13,8 @@
 <body>
     <h1>登陆成功~</h1>
 
+    <hr>
+    打印数据: ${username}
+
 </body>
 </html>
