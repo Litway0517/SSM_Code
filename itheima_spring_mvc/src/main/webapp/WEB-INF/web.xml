@@ -5,11 +5,11 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
 
-    <!-- 配置Spring-webmvc前端控制器信息 -->
+    <!-- 配置Spring-webmvc前端控制器信息 DispatcherServlet(springframework下面的) -->
     <servlet>
         <servlet-name>DispatcherServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <!-- 设置初始化参数传递给  DispatcherServlet 类(注意这个初始化参数的位置有坑 不能随便放) -->
+        <!-- 设置初始化参数传递给  DispatcherServlet 类(注意这个初始化参数的位置有坑 不能随便放 放在servlet-class下面) -->
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:spring-mvc.xml</param-value>
@@ -19,6 +19,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>DispatcherServlet</servlet-name>
+        <!-- 所有前端的请求地址 都必须先经过DispatcherServlet 不然框架就白用了 -->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
