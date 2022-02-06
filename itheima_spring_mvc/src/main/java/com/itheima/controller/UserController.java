@@ -2,6 +2,7 @@ package com.itheima.controller;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,7 +14,41 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/user")
 public class UserController {
 
+    /*
+        同样的, 这个save4方法, 里面有一个形参model, spring-mvc调用这个方法时候, 发现了有这个参数. 那么就会帮程序员创建.
+     */
+    @RequestMapping("/quick4")
+    public String save4(Model model) {
+        // 拆分开 模型 和 数据
+        model.addAttribute("username", "TGU");
 
+        return "forward:/jsp/success.jsp";
+    }
+
+
+    /*
+        这个save3()方法有实际参数 -> modelAndView 并且是 ModelAndView类型的.
+        当spring-mvc框架调用save3()方法时, 就需要对此参数注入数据(谁调用谁负责传递参数).
+        因此这个ModelAndView不为空(因为框架创建了这个对象), 所以就能够使用. 这也是一种注入方式
+     */
+    @RequestMapping("/quick3")
+    public ModelAndView save3(ModelAndView modelAndView) {
+
+        // 设置模型数据 -> addObject(key, value); 存储到域中
+        modelAndView.addObject("username", "itheima");
+
+        // 设置视图名称 -> 就是要展示结果数据的界面名称
+        modelAndView.setViewName("/jsp/success.jsp");
+
+        return modelAndView;
+
+    }
+
+
+
+    /*
+        返回的是ModelAndView
+     */
     @RequestMapping("/quick2")
     public ModelAndView save2() {
         /*
