@@ -21,6 +21,14 @@ public class User {
      */
     private Integer age;
 
+    public User() {
+    }
+    public User(String username, String address, Integer age) {
+        this.username = username;
+        this.address = address;
+        this.age = age;
+    }
+
     /**
      * 获得用户名
      *
