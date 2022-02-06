@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+
 // 将控制器放到spring容器中
 @Controller
 
@@ -14,7 +17,24 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/user")
 public class UserController {
 
+
     /*
+        这里如果使用原始的方法存储到如中数据. 那么就在save5方法中加一个HttpServletRequest对象 框架会帮忙注入(实际上是创建)
+        在方法中写一个HttpServletRequest其实并不常用 因为有了框架就用框架的解耦 不用这个
+     */
+    @RequestMapping("/quick5")
+    public String save5(HttpServletRequest req) {
+
+        req.setAttribute("username", "酷丁鱼");
+
+        return "forward:/jsp/success.jsp";
+    }
+
+
+    /*
+        增加了@RequestMapping注解 spring-mvc框架会帮程序员调用相应方法
+            如果发现方法中有相关参数 那么框架会自动注入 因为写框架的人已经设计好了
+
         同样的, 这个save4方法, 里面有一个形参model, spring-mvc调用这个方法时候, 发现了有这个参数. 那么就会帮程序员创建.
      */
     @RequestMapping("/quick4")
