@@ -31,6 +31,7 @@ public class ContextLoaderListener implements ServletContextListener {
 
         // 读取web.xml中的全局初始化参数
         ServletContext servletContext = servletContextEvent.getServletContext();
+        // 这里是通过web.xml初始化参数获取spring-webmvc框架的配置文件的名称
         String springConfiguration = servletContext.getInitParameter("contextConfigLocation");
         ApplicationContext app = new ClassPathXmlApplicationContext(springConfiguration);
 
