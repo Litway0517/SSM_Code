@@ -4,6 +4,7 @@ package com.itheima.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 // 将控制器放到spring容器中
 @Controller
@@ -11,6 +12,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 // 增该类的路由基地址
 @RequestMapping("/user")
 public class UserController {
+
+
+    @RequestMapping("/quick2")
+    public ModelAndView save2() {
+        /*
+            Model: 模型 是用来存放数据的
+            View: 视图 是用来展示数据的
+         */
+        ModelAndView modelAndView = new ModelAndView();
+
+        // 设置模型数据 -> addObject(key, value); 存储到域中
+        modelAndView.addObject("username", "litway");
+
+        // 设置视图名称 -> 就是要展示结果数据的界面名称
+        modelAndView.setViewName("/jsp/success.jsp");
+
+
+        return modelAndView;
+    }
 
 
     /*
@@ -62,6 +82,19 @@ public class UserController {
          */
         // return "success";
     }
+
+
+    @RequestMapping(value = "/login", params = {"username", "password"})
+    public String login() {
+
+        System.out.println("user login.....");
+
+        return "redirect:/jsp/success.jsp";
+    }
+
+
+
+
 
 
 }
