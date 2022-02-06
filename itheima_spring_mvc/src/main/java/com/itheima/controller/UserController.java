@@ -1,6 +1,8 @@
 package com.itheima.controller;
 
 
+import com.google.gson.Gson;
+import com.itheima.pojo.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,19 @@ import java.io.IOException;
 // 增该类的路由基地址
 @RequestMapping("/user")
 public class UserController {
+
+    @RequestMapping("/quick8")
+    @ResponseBody
+    public String save8() {
+
+        Gson gson = new Gson();
+        String userToJson = gson.toJson(new User("litway", "TGU", 6653));
+
+
+        return userToJson;
+    }
+
+
 
     /*
         注解@ResponseBody是通知spring-mvc框架不要进行页面跳转, 而是进行字符串回传.
