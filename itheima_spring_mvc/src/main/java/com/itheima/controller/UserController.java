@@ -41,7 +41,13 @@ public class UserController {
             之前是:
                 req.getDispatcher("/quick/...").forward(req, resp);
          */
-        // 将结果转发到success界面. forward: 默认时转发行为, 即省略forward也是可以的. 但是如果需要进行重定向, 就必须加redirect:
+        /*
+            将结果转发到success界面. forward: 默认时转发行为, 即省略forward也是可以的.
+            但是如果需要进行重定向, 就必须加redirect:
+
+            每次都会将 内部资源视图解析器InternalResourcesViewResolve 的自定义的前后缀拼接到返回的字符串上再返回
+
+         */
         return "forward:/jsp/success.jsp";
 
 
