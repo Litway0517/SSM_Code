@@ -15,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 // 将控制器放到spring容器中
 @Controller
@@ -25,11 +27,12 @@ public class UserController {
 
     @RequestMapping("/quick10")
     @ResponseBody
-    public User save10() {
+    public List<User> save10() {
+        List<User> list = new ArrayList<User>();
+        list.add(new User("test1", "aa", 111));
+        list.add(new User("test2", "bb", 222));
 
-        User user = new User("test", "", 111);
-
-        return user;
+        return list;
 
     }
 
