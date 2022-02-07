@@ -28,10 +28,22 @@ public class UserController {
 
 
     /*
+        在对应的响应方法中, 增加一个形式参数即可. springMVC框架就会自动的将前端的参数值注入到这个参数中.
+     */
+    @RequestMapping(value = "/quick12")
+    @ResponseBody
+    public void getReqParamsToBean(User user) {
+        System.out.println(user);
+    }
+
+
+
+    /*
         获取前端传递过来的普通参数. 浏览器传过来的参数都是字符串类型.
         即请求地址 -> http://ip:port/工程路径?username=xx&age=xx 中, username和age传给后端的都是字符串类型
      */
     @RequestMapping(value = "/quick11")
+    // 该方法返回的是void. 以及@ResponseBody这个注解 表示不进行页面跳转 即后面是空白界面
     @ResponseBody
     public void getReqParams(String username, Integer age) {
         System.out.println(username + " " + age);
