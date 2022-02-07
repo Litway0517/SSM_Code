@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.itheima.pojo.User;
+import com.itheima.pojo.UserVo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,20 @@ import java.util.List;
 // 增该类的路由基地址
 @RequestMapping("/user")
 public class UserController {
+
+    /*
+        接受前端传过来的集合类型的参数. List<User>. 但是这时需要使用View Object的思想.
+        VO: 是指, 集合中元素的类型构成的类. 这个VO类本身有一个成员变量, 就是List<T> tList.
+     */
+    @RequestMapping("/quick14")
+    @ResponseBody
+    public void getReqListParams(UserVo userVo) {
+        System.out.println("集合类型的参数 集合的每一个元素为User类型的实体类 -> " + userVo);
+
+    }
+
+
+
 
 
     /*
