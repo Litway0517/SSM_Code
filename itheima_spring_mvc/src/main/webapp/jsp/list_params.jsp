@@ -15,7 +15,7 @@
     <hr>
     <h1>表单提交</h1>
 
-    <form action="${pageContext.request.contextPath}" method="post">
+    <form action="${pageContext.request.contextPath}/user/quick14" method="post">
         <%-- 这样写耦合度及其高 --%>
 
         <%-- 表明是第一个User对象的username age属性值 --%>
@@ -24,6 +24,7 @@
         <%-- 表明是第二个User对象的username age属性值 --%>
         用户名: <input type="text" name="userList[1].username" /><br>
         年 龄: <input type="text" name="userList[1].age" /><br>
+        <input type="submit" value="提交">
 
     </form>
 
