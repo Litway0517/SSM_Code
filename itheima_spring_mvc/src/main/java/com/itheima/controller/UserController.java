@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 // 将控制器放到spring容器中
@@ -26,9 +27,21 @@ import java.util.List;
 public class UserController {
 
 
+    /*
+        前端传递的参数为: http://localhost/itheima_spring_mvc/user/quick13?strs=aaa&strs=17&strs=15a
+        那么, 可以使用一个数组收集起来.
+     */
+    @RequestMapping("/quick13")
+    @ResponseBody
+    public void getReqParamsToArgs(String[] strs) {
+        System.out.println("请求参数封装为数组 -> " + Arrays.asList(strs));
+    }
+
+
 
     /*
         在对应的响应方法中, 增加一个形式参数即可. springMVC框架就会自动的将前端的参数值注入到这个参数中.
+        注意名称需要和Bean的成员变量的名称一样.
      */
     @RequestMapping(value = "/quick12")
     @ResponseBody
