@@ -8,6 +8,7 @@ import com.itheima.pojo.User;
 import com.itheima.pojo.UserVo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,6 +29,18 @@ import java.util.List;
 public class UserController {
 
     /*
+        第二种方式获取前端参数: 参数类型是List<User>
+        注意, 响应方法的形参前面需要加上@RequestBody注解
+     */
+    @RequestMapping("/quick15")
+    @ResponseBody
+    public void getReqListParams2(@RequestBody List<User> userList) {
+        System.out.println(userList);
+    }
+
+
+
+    /*
         接受前端传过来的集合类型的参数. List<User>. 但是这时需要使用View Object的思想.
         VO: 是指, 集合中元素的类型构成的类. 这个VO类本身有一个成员变量, 就是List<T> tList.
      */
@@ -37,8 +50,6 @@ public class UserController {
         System.out.println("集合类型的参数 集合的每一个元素为User类型的实体类 -> " + userVo);
 
     }
-
-
 
 
 
