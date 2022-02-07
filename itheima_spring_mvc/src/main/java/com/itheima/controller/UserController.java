@@ -113,6 +113,7 @@ public class UserController {
         // 拆分开 模型 和 数据
         model.addAttribute("username", "TGU");
 
+        // 这里相当于直接写好了View
         return "forward:/jsp/success.jsp";
     }
 
