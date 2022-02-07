@@ -1,6 +1,8 @@
 package com.itheima.controller;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.itheima.pojo.User;
 import org.springframework.stereotype.Controller;
@@ -21,13 +23,25 @@ import java.io.IOException;
 @RequestMapping("/user")
 public class UserController {
 
+    @RequestMapping("/quick9")
+    @ResponseBody
+    public String save9() throws JsonProcessingException {
+        // 使用jackson转换
+        ObjectMapper jackson = new ObjectMapper();
+        String json = jackson.writeValueAsString(new User("test", "TGU", 6651));
+
+        return json;
+    }
+
+
+
+
     @RequestMapping("/quick8")
     @ResponseBody
     public String save8() {
-
+        // 使用Gson转换
         Gson gson = new Gson();
         String userToJson = gson.toJson(new User("litway", "TGU", 6653));
-
 
         return userToJson;
     }
