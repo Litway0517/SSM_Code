@@ -23,6 +23,18 @@ import java.io.IOException;
 @RequestMapping("/user")
 public class UserController {
 
+    @RequestMapping("/quick10")
+    @ResponseBody
+    public User save10() {
+
+        User user = new User("test", "", 111);
+
+        return user;
+
+    }
+
+
+
     @RequestMapping("/quick9")
     @ResponseBody
     public String save9() throws JsonProcessingException {
