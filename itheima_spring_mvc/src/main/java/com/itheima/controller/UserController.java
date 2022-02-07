@@ -31,6 +31,9 @@ public class UserController {
     /*
         第二种方式获取前端参数: 参数类型是List<User>
         注意, 响应方法的形参前面需要加上@RequestBody注解
+
+        在响应方法的形式参数前面加上@RequestBody注解
+        且前端的请求标头的参数形式为application/json;charset=utf-8类型 那么能够直接接收List<User>集合参数
      */
     @RequestMapping("/quick15")
     @ResponseBody
