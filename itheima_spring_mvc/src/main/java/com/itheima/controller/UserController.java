@@ -25,6 +25,24 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
+
+
+    /*
+        获取前端传递过来的普通参数. 浏览器传过来的参数都是字符串类型.
+        即请求地址 -> http://ip:port/工程路径?username=xx&age=xx 中, username和age传给后端的都是字符串类型
+     */
+    @RequestMapping(value = "/quick11")
+    @ResponseBody
+    public void getReqParams(String username, Integer age) {
+        System.out.println(username + " " + age);
+    }
+
+
+
+    /*
+        返回集合数据类型 -> List<User>
+        因为配置了 处理映射器 中的转换器成员, 因此就会将List集合直接转成JSON对象回传给前端
+     */
     @RequestMapping("/quick10")
     @ResponseBody
     public List<User> save10() {
@@ -37,7 +55,9 @@ public class UserController {
     }
 
 
-
+    /*
+        通过Jackson工具包转换Bean -> JSON字符串
+     */
     @RequestMapping("/quick9")
     @ResponseBody
     public String save9() throws JsonProcessingException {
@@ -50,7 +70,9 @@ public class UserController {
 
 
 
-
+    /*
+        通过Gson工具包转换Bean -> JSON字符串
+     */
     @RequestMapping("/quick8")
     @ResponseBody
     public String save8() {
