@@ -103,7 +103,7 @@
 
                 <configuration>
                     <port>80</port>
-                    <path>/</path>
+                    <path>/itheima_spring_mvc</path>
                 </configuration>
             </plugin>
         </plugins>
