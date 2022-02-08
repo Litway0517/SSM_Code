@@ -42,9 +42,19 @@
     <!-- 配置处理器中的映射器的代码太长了 改成mvc注解驱动(需要mvc命名空间) -->
     <mvc:annotation-driven />
 
-    <!-- 用于加载资源 -->
-    <mvc:resources mapping="/static/script/**" location="/static/script/" />
+    <!--
+        第一种方式加载静态资源(这种方式比较繁琐 无论啥样的资源都得配置一遍)
+        开放某些资源的访问权限
+        mapping元素: 代表映射地址. 就是url映射的地址. 浏览器访问的时候的路径
+        location元素: 表示资源具体的目录. 而目录必须匹配资源. 文件夹的路径
+    -->
+    <!--<mvc:resources mapping="/static/script/**" location="/static/script/" />-->
 
+    <!--
+        第二种静态资源配置方式(这种简洁)
+        配置上原始servlet, 即tomcat容器去寻找静态资源
+     -->
+    <mvc:default-servlet-handler />
 
 
 
