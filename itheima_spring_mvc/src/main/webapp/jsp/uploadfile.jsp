@@ -13,8 +13,8 @@
 </head>
 <body>
     <form action="${pageContext.request.contextPath}/user/quick22" method="post" enctype="multipart/form-data">
-        用户名: <input type="text" name="username" >
-        文件名: <input type="file" name="uploadfile" >
+        用户名: <input type="text" name="username" > <br><br>
+        文件名: <input type="file" name="uploadfile" > <br>
         <input type="submit" value="提交">
     </form>
 
