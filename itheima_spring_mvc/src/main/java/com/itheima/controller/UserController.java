@@ -30,16 +30,28 @@ import java.util.List;
 public class UserController {
 
 
-
+    /*
+        多文件上传
+     */
+    @RequestMapping("/quick23")
+    @ResponseBody
+    public void getReqFiles(String username, MultipartFile[] uploadFiles) throws IOException {
+        System.out.println(username);
+        for (MultipartFile uploadFile : uploadFiles) {
+            String originalFilename = uploadFile.getOriginalFilename();
+            uploadFile.transferTo(new File("F:\\IDEA-Java\\notes\\07-HM-SSM\\" + originalFilename));
+        }
+    }
 
 
 
     /*
-        本部分讲了一下原理. PDF上面有
+        单文件上传
+            本部分讲了一下 文件上传 原理. PDF上面有
      */
     @RequestMapping("/quick22")
     @ResponseBody
-    public void getReqFiles(String username, MultipartFile uploadFile) throws IOException {
+    public void getReqFile(String username, MultipartFile uploadFile) throws IOException {
         System.out.println(username);
         System.out.println(uploadFile);
         // 保存文件
