@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,14 +29,24 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
+
+
+
+
+
     /*
         本部分讲了一下原理. PDF上面有
      */
     @RequestMapping("/quick22")
     @ResponseBody
-    public void getReqFiles(String username, MultipartFile uploadFile) {
+    public void getReqFiles(String username, MultipartFile uploadFile) throws IOException {
         System.out.println(username);
         System.out.println(uploadFile);
+        // 保存文件
+        String originalFilename = uploadFile.getOriginalFilename();
+        // 暂时存到这里
+        uploadFile.transferTo(new File("F:\\IDEA-Java\\notes\\07-HM-SSM\\" + originalFilename));
+
     }
 
 
