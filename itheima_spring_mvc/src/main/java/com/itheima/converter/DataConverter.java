@@ -22,6 +22,7 @@ public class DataConverter implements Converter<String, Date> {
 
     // 如期字符串转换为真正的日期格式
     public Date convert(String data) {
+        // 这里的格式最好集成到配置文件
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date parse = null;
         try {
