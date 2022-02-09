@@ -20,6 +20,7 @@ import java.util.Date;
  */
 public class DataConverter implements Converter<String, Date> {
 
+    // 如期字符串转换为真正的日期格式
     public Date convert(String data) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date parse = null;
