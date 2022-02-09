@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,6 +26,23 @@ import java.util.List;
 // 增该类的路由基地址
 @RequestMapping("/user")
 public class UserController {
+
+
+
+    /*
+        原生的Servlet API
+     */
+    @RequestMapping("/quick19")
+    @ResponseBody
+    public void getServletApi(HttpServletRequest request,HttpServletResponse response,
+                              HttpSession session)
+    {
+        System.out.println(request);
+        System.out.println(response);
+        System.out.println(session);
+    }
+
+
 
     /*
         配置自定义的类型转换器
