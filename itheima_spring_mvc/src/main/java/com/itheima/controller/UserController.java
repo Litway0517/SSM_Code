@@ -8,10 +8,7 @@ import com.itheima.pojo.User;
 import com.itheima.pojo.UserVo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +24,25 @@ import java.util.List;
 // 增该类的路由基地址
 @RequestMapping("/user")
 public class UserController {
+
+    /*
+        @RequestParam注解的使用
+            - 当方法为 -> getReqParams(String username) 时, 前端的请求URL地址必须有参数username才能够注入到这个方法的形参中.
+              如果前端的URL地址写错了参数 username 为 name, 那么该方法的形参username就收不到参数值.
+
+          此时可以使用@RequestParam注解结局.
+            - @RequestParam(value = "name")表示显示的绑定 前端URL地址中的name参数的值就是映射给此方法的username的.
+              所以此方法的形参就能够接收到前端的参数值了.
+
+     */
+    @RequestMapping("/quick16")
+    @ResponseBody
+    public void getReqParams(@RequestParam(value = "name") String username) {
+        System.out.println(username);
+    }
+
+
+
 
     /*
         第二种方式获取前端参数: 参数类型是List<User>
