@@ -34,10 +34,17 @@ public class UserController {
             - @RequestParam(value = "name")表示显示的绑定 前端URL地址中的name参数的值就是映射给此方法的username的.
               所以此方法的形参就能够接收到前端的参数值了.
 
+      @RequestParam的参数:
+        - value: 用来显示绑定前端请求地址中的参数绑定给相应方法中形式参数
+        - required: 该参数默认为true. 表示前端必须携带该参数请求, 否则404报错. 相反, 改为false的话就不会
+        - defaultValue: 前端不携带参数时, 默认赋值
+
      */
     @RequestMapping("/quick16")
     @ResponseBody
-    public void getReqParams(@RequestParam(value = "name") String username) {
+    public void getReqParams(@RequestParam(value = "name", required = false,
+                                            defaultValue = "itcast") String username)
+    {
         System.out.println(username);
     }
 
