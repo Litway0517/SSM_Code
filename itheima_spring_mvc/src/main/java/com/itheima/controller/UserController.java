@@ -9,6 +9,7 @@ import com.itheima.pojo.UserVo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +27,17 @@ import java.util.List;
 // 增该类的路由基地址
 @RequestMapping("/user")
 public class UserController {
+
+    /*
+        本部分讲了一下原理. PDF上面有
+     */
+    @RequestMapping("/quick22")
+    @ResponseBody
+    public void getReqFiles(String username, MultipartFile uploadFile) {
+        System.out.println(username);
+        System.out.println(uploadFile);
+    }
+
 
     /*
         @CookieValue注解
