@@ -26,6 +26,20 @@ import java.util.List;
 public class UserController {
 
     /*
+        RestFul风格的请求方式:
+            - url+请求方式来确定, 需要做什么事情.
+            请求方式GET POST PUT DELETE 就对应了增删改查.
+     */
+    // 请求地址的方式: http://ip:port/user/quick17/zhangsan
+    @RequestMapping("/quick17/{name}")
+    @ResponseBody
+    public void restFulReq(@PathVariable(value = "name") String username) {
+        System.out.println(username);
+    }
+
+
+
+    /*
         @RequestParam注解的使用
             - 当方法为 -> getReqParams(String username) 时, 前端的请求URL地址必须有参数username才能够注入到这个方法的形参中.
               如果前端的URL地址写错了参数 username 为 name, 那么该方法的形参username就收不到参数值.
@@ -38,7 +52,6 @@ public class UserController {
         - value: 用来显示绑定前端请求地址中的参数绑定给相应方法中形式参数
         - required: 该参数默认为true. 表示前端必须携带该参数请求, 否则404报错. 相反, 改为false的话就不会
         - defaultValue: 前端不携带参数时, 默认赋值
-
      */
     @RequestMapping("/quick16")
     @ResponseBody
