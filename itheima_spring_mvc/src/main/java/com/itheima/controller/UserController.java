@@ -28,6 +28,16 @@ import java.util.List;
 public class UserController {
 
     /*
+        @CookieValue注解
+     */
+    @RequestMapping("/quick21")
+    @ResponseBody
+    public void getReqCookie(@CookieValue(value = "JSESSIONID", required = false) String cookie) {
+        System.out.println(cookie);
+    }
+
+
+    /*
         @RequestHeaders注解
             - value: 该参数指明获取请求头中的哪一个参数
             - required: 表明需不需要携带该请求头
