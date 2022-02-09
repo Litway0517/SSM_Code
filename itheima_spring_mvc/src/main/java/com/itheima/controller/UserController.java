@@ -27,6 +27,18 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
+    /*
+        @RequestHeaders注解
+            - value: 该参数指明获取请求头中的哪一个参数
+            - required: 表明需不需要携带该请求头
+     */
+    @RequestMapping("/quick20")
+    @ResponseBody
+    public void getReqHeaders(@RequestHeader("User-Agent") String user_agent) {
+        System.out.println(user_agent);
+    }
+
+
 
 
     /*
