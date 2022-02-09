@@ -40,7 +40,8 @@
     </bean>-->
 
     <!-- 配置处理器中的映射器的代码太长了 改成mvc注解驱动(需要mvc命名空间) -->
-    <mvc:annotation-driven />
+    <!-- 因为存在conversion-service元素: 下次扫描的时候会扫描到这个转换器. 使用指定转换器去转换 -->
+    <mvc:annotation-driven conversion-service="conversionService"/>
 
     <!--
         第一种方式加载静态资源(这种方式比较繁琐 无论啥样的资源都得配置一遍)
@@ -55,6 +56,18 @@
         配置上原始servlet, 即tomcat容器去寻找静态资源
      -->
     <mvc:default-servlet-handler />
+
+
+
+    <!-- 声明转换器 -->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters" >
+            <list>
+                <bean class="com.itheima.converter.DataConverter"/>
+            </list>
+        </property>
+    </bean>
+
 
 
 
