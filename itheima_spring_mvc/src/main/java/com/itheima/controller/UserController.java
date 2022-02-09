@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 // 将控制器放到spring容器中
@@ -24,6 +25,22 @@ import java.util.List;
 // 增该类的路由基地址
 @RequestMapping("/user")
 public class UserController {
+
+    /*
+        配置自定义的类型转换器
+            将前端的字符串类型的日期格式, 转换成指定类型的日期格式. String -> Date(使用simpleDateFormat工具)
+
+        1- 写工具类, 实现springmvc的Converter接口
+        2- 配置转换工厂类, 并注入工厂类的成员变量为写好的工具类
+        3- 在注解驱动中注明converter-service元素
+     */
+    @RequestMapping("/quick18")
+    @ResponseBody
+    public void getReqParamsDate(Date date) {
+        System.out.println(date);
+    }
+
+
 
     /*
         RestFul风格的请求方式:
