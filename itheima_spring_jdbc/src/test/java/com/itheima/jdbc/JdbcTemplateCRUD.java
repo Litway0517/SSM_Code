@@ -20,7 +20,7 @@ public class JdbcTemplateCRUD {
     private JdbcTemplate jdbcTemplate;
 
 
-    // 查询特殊对象
+    // 查询特殊对象 -> 返回的是一个数字
     @Test
     public void testQuerySingle() {
         Long count = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM `account`", Long.class);
