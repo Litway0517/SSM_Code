@@ -13,6 +13,7 @@ public class JdbcTemplateTestTest {
 
     /*
         创建spring容器 然后执行jdbcTemplate的测试
+            插入操作
      */
     @Test
     public void jdbcTemplateTest() {
