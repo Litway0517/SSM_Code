@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- 配置C3P0数据源 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!-- 参数注入 -->
+        <property name="driverClass" value="" />
+        <property name="jdbcUrl" value="${}" />
+        <property name="user" value="${}" />
+        <property name="password" value="${}" />
+    </bean>
+    <!-- 产生spring JdbcTemplate -->
+    <bean class="org.springframework.jdbc.core.JdbcTemplate" >
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+
+</beans>
