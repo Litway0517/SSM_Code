@@ -19,7 +19,7 @@ public class JdbcTemplateTestTest {
         // 由spring容器产生JDBC模板对象 和 一些需要的Bean
         ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
         JdbcTemplate jdbcTemplate = (JdbcTemplate) app.getBean("jdbcTemplate");
-        int row = jdbcTemplate.update("INSERT INTO `account` VALUES(?,?)", "tom", 5000);
+        int row = jdbcTemplate.update("INSERT INTO `account` VALUES(?,?,?)",  "0","lily", 5000);
         System.out.println(row);
     }
 
@@ -44,7 +44,7 @@ public class JdbcTemplateTestTest {
         jdbcTemplate.setDataSource(dataSource);
 
         // 执行操作
-        int row = jdbcTemplate.update("INSERT INTO `account` VALUES(?,?)", "tom", 5000);
+        int row = jdbcTemplate.update("INSERT INTO `account` VALUES(?,?,?)",  "0","lily", 5000);
         System.out.println(row);
 
     }
