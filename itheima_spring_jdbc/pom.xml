@@ -86,6 +86,13 @@
       <version>5.0.5.RELEASE</version>
     </dependency>
 
+    <!-- 导入spring-test坐标 -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>5.0.5.RELEASE</version>
+    </dependency>
+
 
     <!-- 导入文件上传的坐标 -->
     <dependency>
