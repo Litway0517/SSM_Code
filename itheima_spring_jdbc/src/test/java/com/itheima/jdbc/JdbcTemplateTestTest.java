@@ -2,6 +2,7 @@ package com.itheima.jdbc;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.junit.Test;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.beans.PropertyVetoException;
@@ -9,6 +10,22 @@ import java.beans.PropertyVetoException;
 import static org.junit.Assert.*;
 
 public class JdbcTemplateTestTest {
+
+    /*
+        创建spring容器 然后执行jdbcTemplate的测试
+     */
+    @Test
+    public void jdbcTemplateTest() {
+        // 由spring容器产生JDBC模板对象 和 一些需要的Bean
+        ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+        JdbcTemplate jdbcTemplate = (JdbcTemplate) app.getBean("jdbcTemplate");
+        int row = jdbcTemplate.update("INSERT INTO `account` VALUES(?,?)", "tom", 5000);
+        System.out.println(row);
+    }
+
+
+
+
 
     /*
         测试JdbcTemplate开发步骤
