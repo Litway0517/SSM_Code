@@ -1,5 +1,6 @@
 package com.itheima.service.impl;
 
+import com.itheima.dao.impl.RoleDaoImpl;
 import com.itheima.domain.Role;
 import com.itheima.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +21,7 @@ import java.util.List;
 public class RoleServiceImpl implements RoleService {
 
     @Autowired
-
-
-
+    private RoleDaoImpl roleDaoImpl;
 
     /**
      * 列表
@@ -30,6 +29,7 @@ public class RoleServiceImpl implements RoleService {
      * @return {@link List}<{@link Role}>
      */
     public List<Role> list() {
-        return null;
+        List<Role> roleList = roleDaoImpl.list();
+        return roleList;
     }
 }
