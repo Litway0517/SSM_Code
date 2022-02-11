@@ -37,8 +37,9 @@
 						href="${pageContext.request.contextPath}/pages/user-list.jsp"> <i
 							class="fa fa-circle-o"></i> 用户管理
 					</a></li>
+					<%-- 更改 [角色管理] 按钮的请求路由地址 --%>
 					<li><a
-						href="${pageContext.request.contextPath}/pages/role-list.jsp"> <i
+						href="${pageContext.request.contextPath}/role/list"> <i
 							class="fa fa-circle-o"></i> 角色管理
 					</a></li>
 					<li><a
