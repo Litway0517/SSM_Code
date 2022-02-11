@@ -20,8 +20,11 @@ import java.util.List;
 @Service
 public class RoleServiceImpl implements RoleService {
 
-    @Autowired
+    // @Autowired
     private RoleDaoImpl roleDaoImpl;
+    public void setRoleDaoImpl(RoleDaoImpl roleDaoImpl) {
+        this.roleDaoImpl = roleDaoImpl;
+    }
 
     /**
      * 列表
