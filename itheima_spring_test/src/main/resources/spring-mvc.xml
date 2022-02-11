@@ -1,7 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:mvc="http://www.springframework.org/schema/mvc"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+">
+
+
+    <!-- 1- mvc的注解驱动. 首先要配置 -->
+    <mvc:annotation-driven  />
+
+    <!-- 2- 配置视图解析器. 增加前后缀 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+        <!-- 配置前后缀 -->
+        <property name="prefix" value="/pages/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <!-- 3- 开放静态资源的访问权限. springMVC的前端控制器访问不到地资源. 由默认的控制器tomcat进行管理 -->
+    <mvc:default-servlet-handler />
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
