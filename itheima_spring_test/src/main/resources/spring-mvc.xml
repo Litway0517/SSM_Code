@@ -3,42 +3,29 @@
         xmlns="http://www.springframework.org/schema/beans"
         xmlns:mvc="http://www.springframework.org/schema/mvc"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
         xsi:schemaLocation="
             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
             http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 ">
 
 
     <!-- 1- mvc的注解驱动. 首先要配置 -->
-    <mvc:annotation-driven  />
+    <mvc:annotation-driven/>
 
     <!-- 2- 配置视图解析器. 增加前后缀 -->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!-- 配置前后缀 -->
-        <property name="prefix" value="/pages/" />
-        <property name="suffix" value=".jsp" />
+        <property name="prefix" value="/pages/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
 
     <!-- 3- 开放静态资源的访问权限. springMVC的前端控制器访问不到地资源. 由默认的控制器tomcat进行管理 -->
-    <mvc:default-servlet-handler />
+    <mvc:default-servlet-handler/>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <!-- 4- 组件扫描. web层只负责扫描web层, 即controller层. 其他的不管 -->
+    <context:component-scan base-package="com.itheima.controller"/>
 
 
 </beans>
