@@ -36,11 +36,16 @@
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:spring-mvc.xml</param-value>
         </init-param>
+        <!-- 创建时初始化 -->
+        <load-on-startup>2</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>DispatcherServlet</servlet-name>
-        <!-- 管理所有路径和资源 -->
-        <url-pattern>/*</url-pattern>
+        <!--
+            管理所有路径和资源
+            这样会导致有一些资源访问权限的问题, 需要在spring-mvc.xml配置文件中开放资源. 否则前端报错
+        -->
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
 
