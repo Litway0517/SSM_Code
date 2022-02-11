@@ -8,8 +8,11 @@
 <title>主页</title>
 </head>
 <body>
+
+	<%-- 每当访问index.jsp时, 会将所有请求转发到main.jsp页面下面 --%>
 	<%
 		response.sendRedirect(request.getContextPath()+"/pages/main.jsp");
 	%>
+
 </body>
 </html>
