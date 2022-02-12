@@ -1,6 +1,5 @@
 package com.itheima.dao;
 
-import com.itheima.domain.Role;
 import com.itheima.domain.User;
 
 import java.util.List;
@@ -21,5 +20,19 @@ public interface UserDao {
     public List<User> list();
 
 
+    /**
+     * 添加用户
+     *
+     * @param user 用户
+     */
+    public Long addUser(User user);
 
+
+    /**
+     * 添加用户角色rel
+     *
+     * @param userId  用户id
+     * @param roleIds 角色id
+     */
+    public void addUserRoleRel(Long userId, Long[] roleIds);
 }
