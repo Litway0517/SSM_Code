@@ -153,7 +153,7 @@
 											<td>${user.phoneNum}</td>
 											<td class="text-center">
 												<c:forEach items="${user.roles}" var="role">
-													${role.roleDesc}&nbsp;
+													${role.roleName}&nbsp;
 												</c:forEach>
 											</td>
 											<td class="text-center">
