@@ -29,9 +29,7 @@ public class RoleController {
 
         // 设置View部分
         modelAndView.setViewName("role-list");
-
         return modelAndView;
-
     }
 
 
