@@ -1,5 +1,7 @@
 package com.itheima.domain;
 
+import java.util.List;
+
 /**
  * 用户
  *
@@ -28,6 +30,11 @@ public class User {
      * 全国矿工工会电话
      */
     private String phoneNum;
+
+    /**
+     * 角色
+     */
+    private List<Role> roles;
 
 
     public User() {
@@ -128,6 +135,24 @@ public class User {
      */
     public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
+    }
+
+    /**
+     * 得到角色
+     *
+     * @return {@link List}<{@link Role}>
+     */
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    /**
+     * 设置角色
+     *
+     * @param roles 角色
+     */
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
     /**
