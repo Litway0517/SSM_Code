@@ -21,5 +21,11 @@ public interface UserService {
     public List<User> list();
 
 
-
+    /**
+     * 添加
+     *
+     * @param user    用户
+     * @param roleIds 角色id
+     */
+    public void add(User user, Long[] roleIds);
 }

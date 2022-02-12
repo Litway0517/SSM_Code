@@ -47,4 +47,18 @@ public class UserServiceImpl implements UserService {
 
         return userList;
     }
+
+    /**
+     * 添加
+     *
+     * @param user    用户
+     * @param roleIds 角色id
+     */
+    public void add(User user, Long[] roleIds) {
+        // 第一步 先插入用户信息
+        Long userId = userDaoImpl.addUser(user);
+
+        // 第二步 再插入用户的id与角色id关联信息
+        userDaoImpl.addUserRoleRel(userId, roleIds);
+    }
 }
