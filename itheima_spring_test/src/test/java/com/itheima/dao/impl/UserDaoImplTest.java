@@ -22,7 +22,7 @@ public class UserDaoImplTest {
 
     @Test
     public void list() {
-        List<User> userList = userDaoImpl.list(new User(1L, null, null, null, null));
+        List<User> userList = userDaoImpl.list();
         System.out.println(userList);
     }
 }
