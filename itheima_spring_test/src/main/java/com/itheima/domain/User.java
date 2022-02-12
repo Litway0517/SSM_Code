@@ -168,6 +168,7 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", phoneNum='" + phoneNum + '\'' +
+                ", roles=" + roles +
                 '}';
     }
 }
