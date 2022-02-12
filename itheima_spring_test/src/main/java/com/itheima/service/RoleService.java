@@ -2,7 +2,6 @@ package com.itheima.service;
 
 
 import com.itheima.domain.Role;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -21,4 +20,11 @@ public interface RoleService {
      */
     public List<Role> list();
 
+
+    /**
+     * 添加
+     *
+     * @param role 角色
+     */
+    public void add(Role role);
 }

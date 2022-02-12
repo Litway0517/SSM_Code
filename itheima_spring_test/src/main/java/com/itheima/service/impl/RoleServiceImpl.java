@@ -32,4 +32,13 @@ public class RoleServiceImpl implements RoleService {
         List<Role> roleList = roleDaoImpl.list();
         return roleList;
     }
+
+    /**
+     * 添加
+     *
+     * @param role 角色
+     */
+    public void add(Role role) {
+        roleDaoImpl.add(role);
+    }
 }
