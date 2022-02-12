@@ -151,7 +151,11 @@
 											<td>${user.username}</td>
 											<td>${user.email}</td>
 											<td>${user.phoneNum}</td>
-											<td class="text-center">${user.roles}</td>
+											<td class="text-center">
+												<c:forEach items="${user.roles}" var="role">
+													${role.roleDesc}&nbsp;
+												</c:forEach>
+											</td>
 											<td class="text-center">
 												<a href="javascript:void(0);" class="btn bg-olive btn-xs">删除</a>
 											</td>
