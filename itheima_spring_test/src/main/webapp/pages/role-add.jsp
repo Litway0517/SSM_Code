@@ -90,11 +90,9 @@
 			</section>
 			<!-- 内容头部 /-->
 
-			<form action="${pageContext.request.contextPath}/role/save.do"
-				method="post">
+			<form action="${pageContext.request.contextPath}/role/add" method="post">
 				<!-- 正文区域 -->
-				<section class="content"> <!--产品信息-->
-
+				<section class="content">
 				<div class="panel panel-default">
 					<div class="panel-heading">角色信息</div>
 					<div class="row data-type">
@@ -109,11 +107,9 @@
 							<input type="text" class="form-control" name="roleDesc"
 								placeholder="角色描述" value="">
 						</div>
-										
-
 					</div>
 				</div>
-				<!--订单信息/--> <!--工具栏-->
+				<!--工具栏-->
 				<div class="box-tools text-center">
 					<button type="submit" class="btn bg-maroon">保存</button>
 					<button type="button" class="btn bg-default"
@@ -134,7 +130,6 @@
 			href="http://www.itcast.cn">研究院研发部</a>.
 		</strong> All rights reserved. </footer>
 		<!-- 底部导航 /-->
-
 	</div>
 
 
@@ -243,9 +238,8 @@
 				liObj.addClass("active");
 			}
 		}
-
 	</script>
-	
+
 
 </body>
 
