@@ -27,4 +27,13 @@ public interface RoleDao {
      * @param role 角色
      */
     public void add(Role role);
+
+
+    /**
+     * 被用户id角色
+     *
+     * @param id id
+     * @return 根据用户id查询到的角色的相关信息
+     */
+    public List<Role> getRoleByUserId(Long id);
 }

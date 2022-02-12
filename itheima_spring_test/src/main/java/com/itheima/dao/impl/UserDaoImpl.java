@@ -36,25 +36,4 @@ public class UserDaoImpl implements UserDao {
         List<User> userList = jdbcTemplate.query(sql, result);
         return userList;
     }
-
-    /**
-     * 被用户id角色
-     *
-     * @param id id
-     * @return 根据用户id查询到的角色的相关信息
-     */
-    public List<Role> getRoleByUserId(Long id) {
-        String sql =
-                "SELECT r.`id`,r.`roleName`,r.`roleDesc` " +
-                "FROM `sys_role` r " +
-                "WHERE r.`id` IN( " +
-                                "SELECT `roleId` " +
-                                "FROM `sys_user_role` " +
-                                "WHERE `userId` = ? " +
-                                ")";
-        BeanPropertyRowMapper<Role> role = new BeanPropertyRowMapper<Role>(Role.class);
-        List<Role> roleList = jdbcTemplate.query(sql, role, id);
-        return roleList;
-
-    }
 }

@@ -45,4 +45,26 @@ public class RoleDaoImpl implements RoleDao {
         String sql = "INSERT INTO `sys_role` VALUES(?,?,?)";
         jdbcTemplate.update(sql, null, role.getRoleName(), role.getRoleDesc());
     }
+
+
+    /**
+     * 被用户id角色
+     *
+     * @param id id
+     * @return 根据用户id查询到的角色的相关信息
+     */
+    public List<Role> getRoleByUserId(Long id) {
+        String sql =
+                "SELECT r.`id`,r.`roleName`,r.`roleDesc` " +
+                        "FROM `sys_role` r " +
+                        "WHERE r.`id` IN( " +
+                        "SELECT `roleId` " +
+                        "FROM `sys_user_role` " +
+                        "WHERE `userId` = ? " +
+                        ")";
+        BeanPropertyRowMapper<Role> role = new BeanPropertyRowMapper<Role>(Role.class);
+        List<Role> roleList = jdbcTemplate.query(sql, role, id);
+        return roleList;
+
+    }
 }
