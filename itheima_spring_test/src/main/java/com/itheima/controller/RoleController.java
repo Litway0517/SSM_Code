@@ -33,4 +33,15 @@ public class RoleController {
         return modelAndView;
 
     }
+
+
+    // 添加角色
+    @RequestMapping("/add")
+    public String add(Role role) {
+        // 添加角色
+        roleServiceImpl.add(role);
+
+        // 设置跳转路径 -> 注意重定向并不会加上 applicationContext.xml文件中配置的 内部资源视图解析器 的前后缀
+        return "redirect:/role/list";
+    }
 }
