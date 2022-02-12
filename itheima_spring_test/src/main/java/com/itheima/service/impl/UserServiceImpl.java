@@ -30,11 +30,10 @@ public class UserServiceImpl implements UserService {
     /**
      * 列表
      *
-     * @param user 用户
      * @return {@link List}<{@link User}>
      */
-    public List<User> list(User user) {
-        List<User> userList = userDaoImpl.list(user);
+    public List<User> list() {
+        List<User> userList = userDaoImpl.list();
         return userList;
     }
 }

@@ -16,10 +16,9 @@ public interface UserService {
     /**
      * 列表
      *
-     * @param user 用户
      * @return {@link List}<{@link User}>
      */
-    public List<User> list(User user);
+    public List<User> list();
 
 
 

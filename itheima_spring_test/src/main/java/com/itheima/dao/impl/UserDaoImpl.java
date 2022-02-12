@@ -9,6 +9,14 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * 用户DAOImpl
+ *
+ * @author DELL_
+ * @date 2022/02/12
+ */
+
+
 @Repository
 public class UserDaoImpl implements UserDao {
 
@@ -21,19 +29,10 @@ public class UserDaoImpl implements UserDao {
      *
      * @return {@link List}<{@link User}>
      */
-    public List<User> list(User user) {
-        String sql2 =
-                "SELECT u.`id`,u.`username`,u.`email`,u.`phoneNum`,r.`roleName` " +
-                "FROM `sys_role` r,`sys_user` u " +
-                "WHERE u.`id` = ? AND r.`id` IN( " +
-                                                "SELECT ur.`roleId` " +
-                                                "FROM `sys_user_role` ur " +
-                                                "WHERE ur.`userId` = ? " +
-                                                ")";
-
-        String sql = "SELECT * FROM `sys_user`";
+    public List<User> list() {
+        String sql ="SELECT * FROM `sys_user`";
         BeanPropertyRowMapper<User> result = new BeanPropertyRowMapper<User>(User.class);
-        List<User> userList = jdbcTemplate.query(sql2, result, user.getId(), user.getId());
+        List<User> userList = jdbcTemplate.query(sql, result);
         return userList;
     }
 }
