@@ -1,5 +1,6 @@
 package com.itheima.service.impl;
 
+import com.itheima.dao.impl.RoleDaoImpl;
 import com.itheima.dao.impl.UserDaoImpl;
 import com.itheima.domain.Role;
 import com.itheima.domain.User;
@@ -21,12 +22,11 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-
-    /**
-     * 用户DAOImpl
-     */
     @Autowired
     private UserDaoImpl userDaoImpl;
+
+    @Autowired
+    private RoleDaoImpl roleDaoImpl;
 
     /**
      * 列表
@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
             所以, 在这里service层, 再进行一次查询! 通过用户id, 将角色id查询出来. 进而查询详细信息.
          */
         for (User user : userList) {
-            List<Role> roleByUserId = userDaoImpl.getRoleByUserId(user.getId());
+            List<Role> roleByUserId = roleDaoImpl.getRoleByUserId(user.getId());
             user.setRoles(roleByUserId);
         }
 
