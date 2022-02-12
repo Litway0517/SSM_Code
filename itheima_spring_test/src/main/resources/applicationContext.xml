@@ -7,6 +7,9 @@
             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 ">
+    <!-- 配置组件扫描 -> 负责service和DAO层的扫描 -->
+    <context:component-scan base-package="com.itheima.service" />
+    <context:component-scan base-package="com.itheima.dao" />
 
     <!-- 1- 先加载jdbc.properties配置文件 -->
     <context:property-placeholder location="classpath:jdbc.properties" />
@@ -24,14 +27,18 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <!-- 配置service层 -->
-    <bean id="roleService" class="com.itheima.service.impl.RoleServiceImpl" >
+    <!-- 配置service层 -> xml配置setter注入 -> 该用注解 -->
+    <!--<bean id="roleService" class="com.itheima.service.impl.RoleServiceImpl" >
         <property name="roleDaoImpl" ref="roleDaoImpl" />
-    </bean>
-    <!-- 配置DAO -->
-    <bean id="roleDaoImpl" class="com.itheima.dao.impl.RoleDaoImpl">
+    </bean>-->
+
+    <!-- 配置DAO -> xml配置注入 -> 该用注解 -->
+    <!--<bean id="roleDaoImpl" class="com.itheima.dao.impl.RoleDaoImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate" />
-    </bean>
+    </bean>-->
+
+
+
 
 
 
