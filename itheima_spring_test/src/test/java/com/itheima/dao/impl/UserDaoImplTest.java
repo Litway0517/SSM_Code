@@ -1,5 +1,6 @@
 package com.itheima.dao.impl;
 
+import com.itheima.domain.Role;
 import com.itheima.domain.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,10 +20,22 @@ public class UserDaoImplTest {
     @Autowired
     private UserDaoImpl userDaoImpl;
 
+    @Autowired
+    private RoleDaoImpl roleDaoImpl;
+
 
     @Test
     public void list() {
         List<User> userList = userDaoImpl.list();
         System.out.println(userList);
+    }
+
+
+
+    @Test
+    public void getRoleByUserId() {
+        List<Role> roleByUserId = roleDaoImpl.getRoleByUserId(1L);
+        System.out.println(roleByUserId);
+
     }
 }
