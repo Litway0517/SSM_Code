@@ -17,14 +17,11 @@ import java.util.List;
 
 
 // 业务层注解
-@Service
+@Service("roleService")
 public class RoleServiceImpl implements RoleService {
 
-    // @Autowired
+    @Autowired
     private RoleDaoImpl roleDaoImpl;
-    public void setRoleDaoImpl(RoleDaoImpl roleDaoImpl) {
-        this.roleDaoImpl = roleDaoImpl;
-    }
 
     /**
      * 列表

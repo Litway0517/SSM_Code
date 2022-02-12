@@ -21,11 +21,8 @@ import java.util.List;
 @Repository
 public class RoleDaoImpl implements RoleDao {
 
-    // @Autowired
+    @Autowired
     private JdbcTemplate jdbcTemplate;
-    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
 
     /**
      * 列表
