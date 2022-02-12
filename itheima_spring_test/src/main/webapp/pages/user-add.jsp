@@ -125,7 +125,7 @@
 						<div class="col-md-10 data">
 							<%-- 使用forEach输出数据库中所有的角色类型 --%>
 							<c:forEach items="${roleList}" var="role">
-								<input class="" type="checkbox" name="roleId" value="${role.id}">${role.roleName}
+								<input class="" type="checkbox" name="roleIds" value="${role.id}">${role.roleName}
 							</c:forEach>
 						</div>
 
