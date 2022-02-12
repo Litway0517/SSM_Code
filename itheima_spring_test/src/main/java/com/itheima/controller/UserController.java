@@ -18,9 +18,9 @@ public class UserController {
     private UserServiceImpl userServiceImpl;
 
     @RequestMapping("/list")
-    public ModelAndView list(User user) {
+    public ModelAndView list() {
         ModelAndView modelAndView = new ModelAndView();
-        List<User> userList = userServiceImpl.list(user);
+        List<User> userList = userServiceImpl.list();
         modelAndView.addObject("userList", userList);
 
         // 设置试图
