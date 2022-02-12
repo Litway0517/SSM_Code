@@ -20,4 +20,11 @@ public interface RoleDao {
      */
     public List<Role> list();
 
+
+    /**
+     * 添加
+     *
+     * @param role 角色
+     */
+    public void add(Role role);
 }

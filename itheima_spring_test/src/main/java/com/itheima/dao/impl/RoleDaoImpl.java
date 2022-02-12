@@ -35,4 +35,14 @@ public class RoleDaoImpl implements RoleDao {
         List<Role> roleList = jdbcTemplate.query(sql, handler);
         return roleList;
     }
+
+    /**
+     * 添加
+     *
+     * @param role 角色
+     */
+    public void add(Role role) {
+        String sql = "INSERT INTO `sys_role` VALUES(?,?,?)";
+        jdbcTemplate.update(sql, null, role.getRoleName(), role.getRoleDesc());
+    }
 }
