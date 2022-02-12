@@ -29,6 +29,17 @@ public class User {
      */
     private String phoneNum;
 
+
+    public User() {
+    }
+    public User(Long id, String username, String email, String password, String phoneNum) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.phoneNum = phoneNum;
+    }
+
     /**
      * 得到id
      *

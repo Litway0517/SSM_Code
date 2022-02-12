@@ -21,6 +21,15 @@ public class Role {
      */
     private String roleDesc;
 
+
+    public Role() {
+    }
+    public Role(Long id, String roleName, String roleDesc) {
+        this.id = id;
+        this.roleName = roleName;
+        this.roleDesc = roleDesc;
+    }
+
     /**
      * 得到id
      *
