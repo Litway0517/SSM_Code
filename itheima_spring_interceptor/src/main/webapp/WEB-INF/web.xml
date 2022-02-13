@@ -4,15 +4,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-    <!--
-        全局初始化参数
-        这个配置文件是个spring容器使用的, 初始化容器的时候, 需要根据一个配置文件来初始化. 这个文件一般叫做applicationContext.xml
-        然后才能够创建容器
-    -->
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:applicationContext.xml</param-value>
-    </context-param>
 
     <!--
         配置spring容器的监听器 -> 就是web上下文启动的时候就的会创建一个spring容器(只会创建一个放到application域中)
