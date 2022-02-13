@@ -28,4 +28,14 @@
     <context:component-scan base-package="com.itheima.controller"/>
 
 
+
+    <!-- 配置springMVC拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.itheima.interceptor.LoginInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
 </beans>
