@@ -91,4 +91,29 @@ public class UserDaoImpl implements UserDao {
     }
 
 
+    /**
+     * 删除用户角色rel
+     *
+     * @param userId 用户id
+     */
+    public void deleteUserRoleRel(Long userId) {
+        String sql = "DELETE FROM spring_test.`sys_user_role` WHERE `userId`=? ";
+        jdbcTemplate.update(sql, userId);
+    }
+
+
+    /**
+     * 删除
+     *
+     * @param userId 用户id
+     */
+    public void deleteUser(Long userId) {
+        String sql = "DELETE FROM spring_test.`sys_user` WHERE `id`=? ";
+        jdbcTemplate.update(sql, userId);
+
+    }
+
+
+
+
 }

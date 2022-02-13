@@ -35,4 +35,20 @@ public interface UserDao {
      * @param roleIds 角色id
      */
     public void addUserRoleRel(Long userId, Long[] roleIds);
+
+
+    /**
+     * 删除
+     *
+     * @param userId 用户id
+     */
+    public void deleteUser(Long userId);
+
+
+    /**
+     * 删除用户角色rel
+     *
+     * @param userId 用户id
+     */
+    public void deleteUserRoleRel(Long userId);
 }
