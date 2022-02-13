@@ -16,7 +16,7 @@
     <!-- 2- 配置视图解析器. 增加前后缀 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!-- 配置前后缀 -->
-        <property name="prefix" value="/pages/"/>
+        <property name="prefix" value=""/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
