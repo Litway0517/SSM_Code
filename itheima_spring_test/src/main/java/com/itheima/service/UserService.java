@@ -36,4 +36,13 @@ public interface UserService {
      * @param userId 用户id
      */
     public void delete(Long userId);
+
+    /**
+     * 检查用户
+     *
+     * @param loginUser 用户
+     * @return boolean
+     */
+    public User login(User loginUser);
+
 }

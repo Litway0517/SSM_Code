@@ -76,4 +76,16 @@ public class UserServiceImpl implements UserService {
         // 第二步 删除用户信息表
         userDaoImpl.deleteUser(userId);
     }
+
+
+    /**
+     * 检查用户
+     *
+     * @param loginUser 用户
+     * @return boolean
+     */
+    public User login(User loginUser) {
+        User checkUser = userDaoImpl.checkByUsernameAndPassword(loginUser);
+        return checkUser;
+    }
 }
