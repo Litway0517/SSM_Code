@@ -8,6 +8,7 @@ import com.itheima.service.impl.RoleServiceImpl;
 import com.itheima.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -56,7 +57,19 @@ public class UserController {
     public String add(User user, Long[] roleIds) {
         userServiceImpl.add(user, roleIds);
 
+        // 重定向回用户列表
         return "redirect:/user/list";
     }
+
+
+    // 删除用户
+    @RequestMapping("/delete/{userId}")
+    public String delete(@PathVariable("userId") Long userId) {
+        userServiceImpl.delete(userId);
+
+        // 重定向回用户列表
+        return "redirect:/user/list";
+    }
+
 
 }
