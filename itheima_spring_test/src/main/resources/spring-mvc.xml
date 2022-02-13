@@ -33,9 +33,12 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <!-- 配置拦截路径 -->
-            <mvc:mapping path="/**" />
+            <mvc:mapping path="/**"/>
             <!-- 排除以下拦截 -> 这个exclude标签需要写在mapping标签下面, 不然报错?  -->
             <mvc:exclude-mapping path="/login" />
+            <!-- 不知什么原因-> 如果不加上这些静态资源, 前端的样式全空 -->
+            <mvc:exclude-mapping path="/css/**" />
+            <mvc:exclude-mapping path="/plugins/**" />
             <bean class="com.itheima.interceptor.LoginInterceptor" />
         </mvc:interceptor>
     </mvc:interceptors>
