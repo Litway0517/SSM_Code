@@ -51,4 +51,15 @@ public interface UserDao {
      * @param userId 用户id
      */
     public void deleteUserRoleRel(Long userId);
+
+
+    /**
+     * 检查用户名和密码
+     * 检查用户
+     *
+     * @param loginUser 用户
+     * @return {@link User}
+     */
+    public User checkByUsernameAndPassword(User loginUser);
+
 }

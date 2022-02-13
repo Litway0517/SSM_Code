@@ -114,6 +114,20 @@ public class UserDaoImpl implements UserDao {
     }
 
 
-
-
+    /**
+     * 检查用户名和密码
+     * 检查用户
+     *
+     * @param loginUser 用户
+     * @return {@link User}
+     */
+    public User checkByUsernameAndPassword(User loginUser) {
+        String sql =
+                "select u.`id`,u.`username`,u.`email`,u.`password`,u.`phoneNum` " +
+                "from `spring_test`.`sys_user` u " +
+                "WHERE u.`username` = ? and u.`password` = ? ";
+        BeanPropertyRowMapper<User> resultHandler = new BeanPropertyRowMapper<User>(User.class);
+        User checkUser = jdbcTemplate.queryForObject(sql, resultHandler, loginUser.getUsername(), loginUser.getPassword());
+        return checkUser;
+    }
 }
