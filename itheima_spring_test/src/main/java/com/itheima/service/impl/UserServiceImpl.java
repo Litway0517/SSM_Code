@@ -55,6 +55,8 @@ public class UserServiceImpl implements UserService {
      * @param roleIds 角色id
      */
     public void add(User user, Long[] roleIds) {
+        // 这两个方法的调用, 实际上都需要事务控制. 同时成功或者同时失败(需要回滚数据库, 不能有数据改变)
+
         // 第一步 先插入用户信息
         Long userId = userDaoImpl.addUser(user);
 
