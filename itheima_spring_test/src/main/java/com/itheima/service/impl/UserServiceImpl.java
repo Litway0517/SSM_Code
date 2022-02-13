@@ -61,4 +61,17 @@ public class UserServiceImpl implements UserService {
         // 第二步 再插入用户的id与角色id关联信息
         userDaoImpl.addUserRoleRel(userId, roleIds);
     }
+
+    /**
+     * 删除
+     *
+     * @param userId 用户id
+     */
+    public void delete(Long userId) {
+        // 第一步 删除关联表
+        userDaoImpl.deleteUserRoleRel(userId);
+
+        // 第二步 删除用户信息表
+        userDaoImpl.deleteUser(userId);
+    }
 }

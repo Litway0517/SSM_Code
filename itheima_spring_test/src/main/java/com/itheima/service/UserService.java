@@ -28,4 +28,12 @@ public interface UserService {
      * @param roleIds 角色id
      */
     public void add(User user, Long[] roleIds);
+
+
+    /**
+     * 删除
+     *
+     * @param userId 用户id
+     */
+    public void delete(Long userId);
 }
