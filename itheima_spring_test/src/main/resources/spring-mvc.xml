@@ -32,7 +32,10 @@
     <!-- 配置springMVC拦截器 -->
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/**"/>
+            <!-- 配置拦截路径 -->
+            <mvc:mapping path="/**" />
+            <!-- 排除以下拦截 -> 这个exclude标签需要写在mapping标签下面, 不然报错?  -->
+            <mvc:exclude-mapping path="/login" />
             <bean class="com.itheima.interceptor.LoginInterceptor" />
         </mvc:interceptor>
     </mvc:interceptors>
