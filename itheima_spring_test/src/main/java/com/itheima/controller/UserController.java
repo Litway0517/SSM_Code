@@ -3,7 +3,6 @@ package com.itheima.controller;
 
 import com.itheima.domain.Role;
 import com.itheima.domain.User;
-import com.itheima.service.RoleService;
 import com.itheima.service.impl.RoleServiceImpl;
 import com.itheima.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
