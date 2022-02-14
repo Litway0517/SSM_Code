@@ -1,5 +1,6 @@
 package com.itheima.interceptor;
 
+import com.itheima.domain.User;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -11,14 +12,15 @@ public class LoginInterceptor implements HandlerInterceptor {
 
     public boolean preHandle(HttpServletRequest req, HttpServletResponse resp, Object handler) throws Exception {
         // 判断session域中是否存在用户
-        String user = req.getParameter("user");
-        if (user != null) {
-            return true;
-        } else {
+        User user = (User) req.getSession().getAttribute("user");
+        if (user == null) {
             // 跳转到登陆界面
-            resp.sendRedirect("/login.jsp");
+            resp.sendRedirect( req.getContextPath() + "/login.jsp");
             return false;
         }
+
+        // 放行
+        return true;
     }
 
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
