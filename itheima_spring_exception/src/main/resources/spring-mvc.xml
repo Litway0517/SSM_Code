@@ -26,7 +26,7 @@
 
 
     <!-- 配置 简单异常映射SimpleMappingExceptionResolver -->
-    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver" >
+    <!--<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver" >
         <property name="defaultErrorView" value="error" />
         <property name="exceptionMappings" >
             <map>
@@ -34,9 +34,11 @@
                 <entry key="com.itheima.exception.MyException" value="error2" />
             </map>
         </property>
+    </bean>-->
 
-    </bean>
 
+    <!-- 自定义异常 -> 只需要放到容器中 -->
+    <bean class="com.itheima.resolver.MyExceptionResolver" />
 
 
 </beans>
