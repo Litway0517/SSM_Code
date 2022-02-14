@@ -38,7 +38,7 @@ public class ProxyTest {
             }
         });
 
-        //4- 创建代理对象
+        //4- 创建代理对象. proxy就是代理, 代理Target这个对象
         Target proxy = (Target) enhancer.create();
 
         proxy.save();
