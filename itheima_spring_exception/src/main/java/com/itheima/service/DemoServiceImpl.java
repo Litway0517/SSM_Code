@@ -1,7 +1,6 @@
 package com.itheima.service;
 
 import com.itheima.exception.MyException;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.io.File;
 import java.io.FileInputStream;

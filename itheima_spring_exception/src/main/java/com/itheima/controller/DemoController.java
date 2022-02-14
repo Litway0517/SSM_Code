@@ -18,10 +18,10 @@ public class DemoController {
     public String show() throws FileNotFoundException, MyException {
         System.out.println("show running......");
         demoServiceImpl.show1();
-        //demoService.show2();
-        //demoService.show3();
-        //demoService.show4();
-        //demoServiceImpl.show5();
+        // demoService.show2();
+        // demoService.show3();
+        // demoService.show4();
+        // demoServiceImpl.show5();
         return "index";
     }
 
