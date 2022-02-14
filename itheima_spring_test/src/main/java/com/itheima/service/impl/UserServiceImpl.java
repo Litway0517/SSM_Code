@@ -6,6 +6,7 @@ import com.itheima.domain.Role;
 import com.itheima.domain.User;
 import com.itheima.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -85,7 +86,18 @@ public class UserServiceImpl implements UserService {
      * @return boolean
      */
     public User login(User loginUser) {
-        User checkUser = userDaoImpl.checkByUsernameAndPassword(loginUser);
-        return checkUser;
+
+        /*
+            抓取DAO层的异常.
+            JdbcTemplate模板的queryForObject方法在查询的时候, 如果没有查询到该条语句.
+            那么就会派出EmptyResultDataAccessException异常. 在业务层处理该异常, try...catch...
+         */
+        User checkUser = null;
+        try {
+            checkUser = userDaoImpl.checkByUsernameAndPassword(loginUser);
+            return checkUser;
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 }
