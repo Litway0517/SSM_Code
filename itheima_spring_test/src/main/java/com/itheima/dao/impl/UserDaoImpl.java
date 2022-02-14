@@ -3,6 +3,7 @@ package com.itheima.dao.impl;
 import com.itheima.dao.UserDao;
 import com.itheima.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -121,7 +122,7 @@ public class UserDaoImpl implements UserDao {
      * @param loginUser 用户
      * @return {@link User}
      */
-    public User checkByUsernameAndPassword(User loginUser) {
+    public User checkByUsernameAndPassword(User loginUser) throws EmptyResultDataAccessException {
         String sql =
                 "select u.`id`,u.`username`,u.`email`,u.`password`,u.`phoneNum` " +
                 "from `spring_test`.`sys_user` u " +
