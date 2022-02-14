@@ -39,7 +39,7 @@
             <!-- 不知什么原因-> 如果不加上这些静态资源, 前端的样式全空 -->
             <mvc:exclude-mapping path="/css/**" />
             <mvc:exclude-mapping path="/plugins/**" />
-            <bean class="com.itheima.interceptor.LoginInterceptor" />
+            <bean class="com.itheima.interceptor.PrivilegeInterceptor" />
         </mvc:interceptor>
     </mvc:interceptors>
 
