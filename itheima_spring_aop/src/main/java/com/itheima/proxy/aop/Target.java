@@ -6,4 +6,10 @@ public class Target implements TargetInterface {
         System.out.println("save running.....");
     }
 
+
+    public void testThrow() {
+        int i = 1 / 0;
+        System.out.println("testing exception...");
+    }
+
 }
