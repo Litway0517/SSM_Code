@@ -28,4 +28,9 @@ public class MyAspect {
         System.out.println("异常抛出增强....");
     }
 
+
+    public void after() {
+        System.out.println("最终增强: 无论异常出现与否都会执行");
+    }
+
 }
