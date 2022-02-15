@@ -23,5 +23,10 @@ public class AopTest {
         target.save();
     }
 
+    @Test
+    public void testThrow() {
+        target.testThrow();
+    }
+
 
 }
