@@ -27,7 +27,7 @@
                 aop:before: 这个就已经指明了 通知 的类型. 即前置增强
             -->
             <!-- 配置前置增强 -->
-<!--            <aop:before method="before" pointcut="execution(public void com.itheima.proxy.aop.Target.save())"/>-->
+            <aop:before method="before" pointcut="execution(public void com.itheima.proxy.aop.Target.save())"/>
 
             <!-- 配置后置增强 -->
             <aop:after-returning method="afterReturning" pointcut="execution(void com.itheima.proxy.aop.Target.save())" />
@@ -40,6 +40,22 @@
 
             <!-- 最终增强: 无论异常不异常均执行 -->
             <aop:after method="after" pointcut="execution(void com.itheima.proxy.aop..*.*(..))" />
+
+
+        </aop:aspect>
+    </aop:config>
+
+
+    <!-- 配置新的aop -->
+    <aop:config>
+        <aop:aspect ref="myAspect" >
+            <!-- 抽取pointcut表达式 -> 之后再修改配置只需要改一处 -->
+            <aop:pointcut id="myPointcut" expression="execution(void com.itheima.proxy.aop..*.*(..))" />
+
+            <!-- 切面 = 切点 + 通知 -->
+            <!-- 使用上面抽取出来的 切点表达式 -->
+            <aop:before method="before" pointcut-ref="myPointcut" />
+            <aop:around method="around" pointcut-ref="myPointcut" />
         </aop:aspect>
     </aop:config>
 
