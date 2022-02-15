@@ -8,8 +8,8 @@ public class Target implements TargetInterface {
 
 
     public void testThrow() {
-        int i = 1 / 0;
         System.out.println("testing exception...");
+        int i = 1 / 0;
     }
 
 }
