@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xsi:schemaLocation=
+                "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+
+">
+
+    <!-- 配置目标对象 -->
+    <bean id="target" class="com.itheima.proxy.aop.Target" />
+
+    <!-- 配置切面对象 -->
+    <bean id="myAspect" class="com.itheima.proxy.aop.MyAspect" />
+
+
+    <!-- 配置织入: 告诉spring. 哪些切点(业务方法)需要被增强(增加通知). 增强的类型是什么样(前置 OR 后置) -->
+    <!--<aop:config>
+        &lt;!&ndash; 这个标签用来声明 切面. 引用声明myAspect作为切面类 &ndash;&gt;
+        <aop:aspect ref="myAspect" >
+            &lt;!&ndash;
+                aspect是切面: 由 切点 + 通知 构成
+                method元素: 用来标识通知. 通知就是增强方法.
+                pointcut元素: 用来标识被增强的方法. 就是切点. 增强proxy包下面的Target类的save()方法
+                aop:before: 这个就已经指明了 通知 的类型. 即前置增强
+            &ndash;&gt;
+            <aop:before method="before" pointcut="execution(public void com.itheima.proxy.aop.Target.save())"/>
+        </aop:aspect>
+    </aop:config>-->
+
+
+
+
+
+
+
+</beans>
