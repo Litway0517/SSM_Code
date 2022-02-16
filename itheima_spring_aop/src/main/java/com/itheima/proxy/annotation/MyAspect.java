@@ -1,10 +1,7 @@
 package com.itheima.proxy.annotation;
 
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 // 使用@Component告诉spring容器, 本类的创建权交给spring容器管理
@@ -16,12 +13,18 @@ import org.springframework.stereotype.Component;
 public class MyAspect {
 
 
+    // 定义一个方法, 用来写 切点表达式
+    @Pointcut(value = "execution(void com.itheima.proxy.annotation.*.*(..))")
+    public void pointcut() {}
+
+
     /*
         配置前置增强
         首先, @Before注解的名称就决定了这个是 前置通知.
         value用来表述 切点表达式.
      */
-    @Before(value = "execution(void com.itheima.proxy.annotation.*.*(..))")
+    // @Before(value = "execution(void com.itheima.proxy.annotation.*.*(..))")
+    @Before(value = "MyAspect.pointcut()")
     public void before() throws InterruptedException {
         System.out.println("前置增强: 执行目标方法之前的 增强方法");
     }
@@ -44,6 +47,8 @@ public class MyAspect {
         return proceed;
     }
 
+
+    @AfterThrowing(value = "pointcut()")
     public void afterThrowing() {
         System.out.println("异常抛出增强....");
     }
