@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component("myAspect")
 
 
-// 添加@Aspect注解 标识此类是  切面类
+// 添加@Aspect注解 标识此类是  切面类(通知类 -> 通知集合  增强方法集合)
 @Aspect
 public class MyAspect {
 
