@@ -48,44 +48,46 @@
     </bean>
 
 
+
+
     <!-- 配置通知  通知就是增强  这里的增强是事务控制. 事务控制来增强业务方法 -->
-    <tx:advice id="txAdvice" transaction-manager="transactionManager" >
-        <!--
+    <!--<tx:advice id="txAdvice" transaction-manager="transactionManager" >
+        &lt;!&ndash;
             这里时设置事物的属性信息:
                 1- 事务的隔离级别                   isolation: 隔离级别
                 2- 事务的传播行为(两个事务之间)       propagation: 传播行为
                 3- 事务的超时行为                   timeout: 超时时间
                 4- 只读?                          read-only: 仅仅读取
-        -->
+        &ndash;&gt;
         <tx:attributes>
-            <!--
+            &lt;!&ndash;
                 tx:method标签: 对不同的方法进行不同的事务管理. 配置增强该方法时的事务参数.
                 为方法指定相关参数. 参数就是上面的那些. *表示所有方法
-            -->
+            &ndash;&gt;
             <tx:method name="transfer" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
             <tx:method name="*" isolation="DEFAULT" propagation="REQUIRED" timeout="-1" read-only="false"/>
 
             <tx:method name="save" isolation="REPEATABLE_READ" propagation="REQUIRED"  read-only="false"/>
             <tx:method name="findAll" isolation="REPEATABLE_READ" propagation="REQUIRED" timeout="-1" read-only="false"/>
 
-            <!-- update开头的方法 -->
+            &lt;!&ndash; update开头的方法 &ndash;&gt;
             <tx:method name="update*" isolation="DEFAULT" propagation="REQUIRED" timeout="-1" read-only="false"/>
         </tx:attributes>
     </tx:advice>
 
 
-    <!-- 当目标对象和通知, 均配置完成时, 需要将两者织入 -->
+    &lt;!&ndash; 当目标对象和通知, 均配置完成时, 需要将两者织入 &ndash;&gt;
     <aop:config>
-        <!--
+        &lt;!&ndash;
             普通的业务增强, 使用aop:aspect就好了
             这里的, aop:advisor是专门用于, 使用事务对业务进行增强的标签.
 
             这里面又进行了一次抽取(抽取相同代码).
-        -->
+        &ndash;&gt;
         <aop:pointcut id="txPointcut" expression="execution(* com.itheima.service.impl.*.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
     </aop:config>
-
+    -->
 
 
 
