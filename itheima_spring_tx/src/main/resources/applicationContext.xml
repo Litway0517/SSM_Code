@@ -26,8 +26,8 @@
 
 
     <!--
-            配置目标对象  内部的方法就是切点. 所谓的目标对象, 就是为了完成业务的方法
-            对 AccountServiceImpl 进行增强.
+        配置目标对象  内部的方法就是切点. 所谓的目标对象, 就是为了完成业务的方法
+        对 AccountServiceImpl 进行增强.
     -->
     <bean id="accountService" class="com.itheima.service.impl.AccountServiceImpl">
         <property name="accountDao" ref="accountDao"/>
@@ -71,7 +71,7 @@
     </tx:advice>
 
 
-    <!-- 当目标对象和通知配置完成时, 需要将两者织入 -->
+    <!-- 当目标对象和通知, 均配置完成时, 需要将两者织入 -->
     <aop:config>
         <!--
             普通的业务增强, 使用aop:aspect就好了
