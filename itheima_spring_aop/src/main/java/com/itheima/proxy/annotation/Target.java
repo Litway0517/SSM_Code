@@ -1,5 +1,9 @@
 package com.itheima.proxy.annotation;
 
+
+import org.springframework.stereotype.Component;
+
+@Component("target")
 public class Target implements TargetInterface {
 
     public void save() {
