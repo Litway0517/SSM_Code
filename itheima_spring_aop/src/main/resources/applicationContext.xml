@@ -12,7 +12,7 @@
     <!-- 配置目标对象 -->
     <bean id="target" class="com.itheima.proxy.aop.Target" />
 
-    <!-- 配置切面对象 -->
+    <!-- 配置切面对象(未引用之前仍然只是一个简单的容器对象) -->
     <bean id="myAspect" class="com.itheima.proxy.aop.MyAspect" />
 
 
