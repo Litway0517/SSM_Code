@@ -76,8 +76,11 @@
         <!--
             普通的业务增强, 使用aop:aspect就好了
             这里的, aop:advisor是专门用于, 使用事务对业务进行增强的标签.
+
+            这里面又进行了一次抽取(抽取相同代码).
         -->
-        <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.itheima.service.impl.*.*(..))" />
+        <aop:pointcut id="txPointcut" expression="execution(* com.itheima.service.impl.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
     </aop:config>
 
 
