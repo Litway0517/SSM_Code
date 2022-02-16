@@ -1,6 +1,8 @@
 package com.itheima.proxy.annotation;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -20,7 +22,7 @@ public class MyAspect {
         value用来表述 切点表达式.
      */
     @Before(value = "execution(void com.itheima.proxy.annotation.*.*(..))")
-    public void before() {
+    public void before() throws InterruptedException {
         System.out.println("前置增强: 执行目标方法之前的 增强方法");
     }
 
@@ -33,7 +35,9 @@ public class MyAspect {
     /*
         ProceedingJoinPoint: 正在执行的连接点 -> 实际上就是切点
      */
+    @Around(value = "execution(void com.itheima.proxy.annotation.*.*(..))")
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
+        Thread.sleep(3000);
         System.out.println("环绕增强: 环绕前...");
         Object proceed = pjp.proceed();
         System.out.println("环绕增强: 环绕后...");
@@ -45,6 +49,7 @@ public class MyAspect {
     }
 
 
+    @After(value = "execution(void com.itheima.proxy.annotation.*.*(..))")
     public void after() {
         System.out.println("最终增强: 无论异常出现与否都会执行");
     }
