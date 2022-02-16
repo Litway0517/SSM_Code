@@ -48,6 +48,8 @@
     </bean>
 
 
+    <!-- 开启事务配置 -->
+    <tx:annotation-driven transaction-manager="transactionManager" />
 
 
     <!-- 配置通知  通知就是增强  这里的增强是事务控制. 事务控制来增强业务方法 -->
