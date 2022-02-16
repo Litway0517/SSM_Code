@@ -7,9 +7,9 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>war</packaging>
 
-    <name>itheima_spring_tx</name>
+    <name>itheima_spring_tx_annotation</name>
     <groupId>com.itheima</groupId>
-    <artifactId>itheima_spring_tx</artifactId>
+    <artifactId>itheima_spring_tx_annotation</artifactId>
     <version>1.0-SNAPSHOT</version>
 
 
