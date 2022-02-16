@@ -24,9 +24,46 @@
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 
+
+    <!--
+            配置目标对象  内部的方法就是切点. 所谓的目标对象, 就是为了完成业务的方法
+            对 AccountServiceImpl 进行增强.
+        -->
     <bean id="accountService" class="com.itheima.service.impl.AccountServiceImpl">
         <property name="accountDao" ref="accountDao"/>
     </bean>
+
+
+    <!-- 配置  平台事务管理器(究竟使用myBatis或者还是hibernate, JDBC) -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" >
+        <!--
+            transaction底层会从dataSource中获取connection进行事务管理
+            使用JdbcTemplate模板进行事务控制时, 底层就是简单的对jdbc进行封装. 因此, JDBC还是需要dataSource才能运行.
+            这里需要注入一个变量.
+        -->
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+
+    <!-- 配置通知  通知就是增强  这里的增强是事务控制. 事务控制来增强业务方法 -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager" >
+        <tx:attributes>
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+
+
+    <!-- 当目标对象和通知配置完成时, 需要将两者织入 -->
+    <aop:config>
+        <!--
+            普通的业务增强, 使用aop:aspect就好了
+            这里的, aop:advisor是专门用于, 使用事务对业务进行增强的标签.
+        -->
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.itheima.service.impl.*.*(..))" />
+    </aop:config>
+
+
+
 
 
 </beans>
