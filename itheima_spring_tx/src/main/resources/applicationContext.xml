@@ -34,7 +34,7 @@
     </bean>
 
 
-    <!-- 配置  平台事务管理器(究竟使用myBatis或者还是hibernate, JDBC) -->
+    <!-- 配置  平台事务管理器(究竟使用myBatis或者还是hibernate, JDBC来进行事务管理) -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" >
         <!--
             transaction底层会从dataSource中获取connection进行事务管理
@@ -65,7 +65,7 @@
             <tx:method name="save" isolation="REPEATABLE_READ" propagation="REQUIRED"  read-only="false"/>
             <tx:method name="findAll" isolation="REPEATABLE_READ" propagation="REQUIRED" timeout="-1" read-only="false"/>
 
-            <!-- update开头的方法 -->
+            <!-- 匹配update开头的方法 -->
             <tx:method name="update*" isolation="DEFAULT" propagation="REQUIRED" timeout="-1" read-only="false"/>
         </tx:attributes>
     </tx:advice>
@@ -74,8 +74,8 @@
     <!-- 当目标对象和通知, 均配置完成时, 需要将两者织入 -->
     <aop:config>
         <!--
-            普通的业务增强, 使用aop:aspect就好了
-            这里的, aop:advisor是专门用于, 使用事务对业务进行增强的标签.
+            普通的业务增强, 之前的aop编程, 使用aop:aspect标签就好了
+            这里的, aop:advisor是专门用于, 事务控制对业务进行增强的标签.
 
             这里面又进行了一次抽取(抽取相同代码).
         -->
