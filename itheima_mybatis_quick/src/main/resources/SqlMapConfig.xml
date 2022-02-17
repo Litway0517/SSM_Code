@@ -6,6 +6,12 @@
     <!-- 加载外部的properties配置文件 -->
     <properties resource="jdbc.properties" />
 
+    <!-- 设置别名 -->
+    <typeAliases>
+        <typeAlias type="com.itheima.entity.User" alias="user" />
+    </typeAliases>
+
+
     <environments default="develop">
         <environment id="develop">
             <transactionManager type="JDBC" />
