@@ -23,6 +23,25 @@ public class User {
 
 
     /**
+     * 用户
+     */
+    public User() {
+    }
+
+    /**
+     * 用户
+     *
+     * @param id       id
+     * @param username 用户名
+     * @param password 密码
+     */
+    public User(int id, String username, String password) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+    }
+
+    /**
      * 得到id
      *
      * @return int
