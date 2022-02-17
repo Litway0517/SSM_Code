@@ -22,6 +22,7 @@
     <!--
         插入操作
         parameterType: 从客户端传过来的数据, 将这个Bean中具体的数据取出来, 放到SQL语句中, 这才符合逻辑
+                        指明要插入的数据的类型
      -->
     <insert id="save" parameterType="com.itheima.entity.User">
         insert into `user` values(#{id}, #{username}, #{password})

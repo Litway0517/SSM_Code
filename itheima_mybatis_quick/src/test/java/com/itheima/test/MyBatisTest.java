@@ -32,7 +32,7 @@ public class MyBatisTest {
         // 获得session会话对象
         SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        // 执行操作  参数: namespace + id
+        // 执行操作  参数: namespace + id. 后面还需要给予插入的实体
         int insert = sqlSession.insert("userMapper.save", user);
 
         // mybatis的事务默认是关闭的, 也就是说, 当有数据更新的时候, 需要手动提交
