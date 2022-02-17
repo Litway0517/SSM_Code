@@ -14,7 +14,7 @@
         resultType: 标签表示的是查询得到的结果类型. mybatis会自动根据全包名反射创建User对象, 然后将查询得到的结果封装起来
                     指的是, DAO层查询到的结果, 要向 resultType 指定的位置里面放. 而insert是parameterType, 取数据去存
     -->
-    <select id="findAll" resultType="com.itheima.entity.User">
+    <select id="findAll" resultType="user">
         SELECT * FROM `user`
     </select>
 
@@ -24,21 +24,23 @@
         parameterType: 从客户端传过来的数据, 将这个Bean中具体的数据取出来, 放到SQL语句中, 这才符合逻辑
                         指明要插入的数据的类型
      -->
-    <insert id="save" parameterType="com.itheima.entity.User">
+    <insert id="save" parameterType="user">
         insert into `user` values(#{id}, #{username}, #{password})
     </insert>
 
 
     <!-- 更新操作 -->
-    <update id="update" parameterType="com.itheima.entity.User">
+    <update id="update" parameterType="user">
         update `user` set username=#{username}, password=#{password} where id=#{id}
     </update>
 
     <!--
         删除操作
         此时传入的参数类型是Integer. 只有一个参数, 所以 #{xxx} 能够随便写. id也可以, abc也可以. 但是id的可读性更好
+
+        parameterType: 直接写成int也行. 因为mybatis框架已经自行进行了封装. 但是其他类并没有封装, 仅仅是简单类.
     -->
-    <delete id="delete" parameterType="java.lang.Integer" >
+    <delete id="delete" parameterType="int" >
         delete from `user` where id=#{id}
     </delete>
 
