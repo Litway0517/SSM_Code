@@ -11,11 +11,22 @@
 
     <!--
         select标签表示的查询
-        resultType: 标签表示的是查询得到的结果类型
+        resultType: 标签表示的是查询得到的结果类型. mybatis会自动根据全包名反射创建User对象, 然后将查询得到的结果封装起来
+                    指的是, DAO层查询到的结果, 要向 resultType 指定的位置里面放. 而insert是parameterType, 取数据去存
     -->
     <select id="findAll" resultType="com.itheima.entity.User">
         SELECT * FROM `user`
     </select>
+
+
+    <!--
+        插入操作
+        parameterType: 从客户端传过来的数据, 将这个Bean中具体的数据取出来, 放到SQL语句中, 这才符合逻辑
+     -->
+    <insert id="save" parameterType="com.itheima.entity.User">
+        insert into `user` values(#{id}, #{username}, #{password})
+
+    </insert>
 
 </mapper>
 
