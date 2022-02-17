@@ -15,6 +15,27 @@ public class MyBatisTest {
 
 
     @Test
+    public void findById() throws IOException {
+        // 获得核心配置文件
+        InputStream resourceAsStream = Resources.getResourceAsStream("SqlMapConfig.xml");
+
+        // 获得session工厂对象
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+
+        // 获得session会话对象
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        // 执行操作  参数: namespace + id
+        User user = sqlSession.selectOne("userMapper.findById", 5);
+
+        System.out.println(user);
+
+        // 释放资源
+        sqlSession.close();
+    }
+
+
+    @Test
     public void delete() throws IOException {
         // 获得核心配置文件
         InputStream resourceAsStream = Resources.getResourceAsStream("SqlMapConfig.xml");
