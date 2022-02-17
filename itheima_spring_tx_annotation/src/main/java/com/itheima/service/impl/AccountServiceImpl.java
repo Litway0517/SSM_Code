@@ -24,7 +24,9 @@ public class AccountServiceImpl implements AccountService {
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED, timeout = -1)
     public void transfer(String outMan, String inMan, double money) {
         accountDao.out(outMan,money);
-         int i = 1/0;
+
+        int i = 1 / 0;
+
         accountDao.in(inMan,money);
     }
 
