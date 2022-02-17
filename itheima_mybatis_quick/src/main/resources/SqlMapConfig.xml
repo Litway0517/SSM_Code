@@ -3,7 +3,7 @@
 
 <configuration>
 
-    <environments default="">
+    <environments default="develop">
         <environment id="develop">
             <transactionManager type="JDBC" />
             <dataSource type="POOLED">
