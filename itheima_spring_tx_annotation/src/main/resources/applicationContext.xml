@@ -19,18 +19,6 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <!--<bean id="accountDao" class="com.itheima.dao.impl.AccountDaoImpl">
-        <property name="jdbcTemplate" ref="jdbcTemplate"/>
-    </bean>-->
-
-
-    <!--
-        配置目标对象  内部的方法就是切点. 所谓的目标对象, 就是为了完成业务的方法
-        对 AccountServiceImpl 进行增强.
-    -->
-    <!--<bean id="accountService" class="com.itheima.service.impl.AccountServiceImpl">
-        <property name="accountDao" ref="accountDao"/>
-    </bean>-->
 
 
     <!-- 自定义的包和类, 一般使用注解开发. 非自定义的类或包使用配置文件注入spring -->
@@ -50,6 +38,12 @@
 
     <!-- 开启事务配置 -->
     <tx:annotation-driven transaction-manager="transactionManager" />
+
+
+
+
+
+
 
 
     <!-- 配置通知  通知就是增强  这里的增强是事务控制. 事务控制来增强业务方法 -->
