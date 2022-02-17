@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
+<!--
+    namespace: 命名空间.
+        mapper标签下面会有很多的语句, 不仅仅有查询. 因此 namespace + id 就能够唯一标识要执行语句
+-->
 <mapper namespace="userMapper">
 
 
     <!--
         select标签表示的查询
-        resultType: 标签表示的是查询得到的结果类型 
+        resultType: 标签表示的是查询得到的结果类型
     -->
     <select id="findAll" resultType="com.itheima.entity.User">
         SELECT * FROM `user`
