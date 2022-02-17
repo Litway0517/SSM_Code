@@ -26,8 +26,13 @@
      -->
     <insert id="save" parameterType="com.itheima.entity.User">
         insert into `user` values(#{id}, #{username}, #{password})
-
     </insert>
+
+
+    <!-- 更新操作 -->
+    <update id="update" parameterType="com.itheima.entity.User">
+        update `user` set username=#{username}, password=#{password} where id=#{id}
+    </update>
 
 </mapper>
 
