@@ -5,10 +5,15 @@
 
     <select id="findByCondition" resultType="user">
 
-        select * from user where 1 = 1
-        <if test="id != 0">and id=#{id}</if>
-        <if test="username != null">and username=#{username}</if>
-        <if test="password != null">and password=#{password}</if>
+        select * from user
+        <!--
+            <where>标签代表的是, 如果下面的众多if标签中有一个是true, 那么在上面的sql语句中拼上where查询条件, 否则不拼接
+        -->
+        <where>
+            <if test="id != 0">and id=#{id}</if>
+            <if test="username != null">and username=#{username}</if>
+            <if test="password != null">and password=#{password}</if>
+        </where>
     </select>
 </mapper>
 
