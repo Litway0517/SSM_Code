@@ -18,7 +18,7 @@ public class MapperTest {
     public void findByCondition() throws IOException {
 
         User user = new User();
-        user.setId(1);
+        user.setId(4);
         user.setUsername("zhangsan");
         user.setPassword("123");
 
