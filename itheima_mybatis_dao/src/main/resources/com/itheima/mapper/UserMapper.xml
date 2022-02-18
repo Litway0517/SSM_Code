@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!--
+    namespace: 命名空间.
+        mapper标签下面会有很多的语句, 不仅仅有查询. 因此 namespace + id 就能够唯一标识要执行语句
+-->
+<mapper namespace="com.itheima.dao.UserMapper">
+
+
+    <!--
+        select标签表示的查询
+        resultType: 标签表示的是查询得到的结果类型. mybatis会自动根据全包名反射创建User对象, 然后将查询得到的结果封装起来
+                    指的是, DAO层查询到的结果, 要向 resultType 指定的位置里面放. 而insert是parameterType, 取数据去存
+    -->
+    <select id="findAll" resultType="user">
+        SELECT * FROM `user`
+    </select>
+
+
+    <!-- 根据Id进行查询 -->
+    <select id="findById" parameterType="int" resultType="user" >
+        SELECT * FROM `user` WHERE id=#{id}
+    </select>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
