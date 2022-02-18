@@ -10,17 +10,18 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MapperTest {
 
     @Test
-    public void findByCondition() throws IOException {
+    public void test() throws IOException {
 
         User user = new User();
         user.setId(4);
-        user.setUsername("zhangsan");
-        user.setPassword("123");
+//        user.setUsername("zhangsan");
+//        user.setPassword("123");
 
 
         InputStream resourceAsStream = Resources.getResourceAsStream("SqlMapConfig.xml");
@@ -29,7 +30,13 @@ public class MapperTest {
         //获得MyBatis框架生成的UserMapper接口的实现类
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 
-        List<User> userList = userMapper.findByCondition(user);
+        ArrayList<Integer> ids = new ArrayList<Integer>();
+        ids.add(1);
+        ids.add(3);
+        ids.add(5);
+        ids.add(9);
+
+        List<User> userList = userMapper.findByIds(ids);
         System.out.println(userList);
 
         // 关闭连接
