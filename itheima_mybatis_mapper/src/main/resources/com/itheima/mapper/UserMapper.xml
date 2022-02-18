@@ -21,6 +21,7 @@
 
     <!--
         parameterType: 这个变量是传过来的参数. 如果是集合, 写list. 如果是数组, 写array.
+        foreach标签: 主要是用来查询 select * from 表 where 字段 in(?,?,?...) 这种语句的.
     -->
     <select id="findByIds" parameterType="list" resultType="user">
         <include refid="selectUser"/>
@@ -34,7 +35,6 @@
             -->
             <foreach collection="list" open="id in(" close=")" item="id" separator=",">#{id}</foreach>
         </where>
-
     </select>
 </mapper>
 
