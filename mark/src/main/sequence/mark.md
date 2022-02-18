@@ -27,3 +27,5 @@
 >   11- spring_mybatis_quick
 > 
 >   12- spring_mybatis_dao
+> 
+>   13- spring_mybatis_mapper
