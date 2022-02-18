@@ -24,6 +24,6 @@
 >
 >   10- spring_tx_annotation(Transaction anno)
 > 
->   11- spring_mybatis
+>   11- spring_mybatis_quick
 > 
-> 
+>   12- spring_mybatis_dao
