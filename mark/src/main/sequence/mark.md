@@ -29,3 +29,5 @@
 >   12- spring_mybatis_dao
 > 
 >   13- spring_mybatis_mapper
+> 
+>   14- mybatis_config
