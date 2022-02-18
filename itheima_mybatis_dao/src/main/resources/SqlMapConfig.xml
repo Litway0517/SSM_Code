@@ -6,7 +6,10 @@
     <!-- 加载外部的properties配置文件 -->
     <properties resource="jdbc.properties" />
 
-    <!-- 设置别名 -->
+    <!--
+        设置别名
+        设置 com.itheima.entity.User 的别名为user. 后面, 在具体的mapper映射文件中就能使用user代替了
+    -->
     <typeAliases>
         <typeAlias type="com.itheima.entity.User" alias="user" />
     </typeAliases>
