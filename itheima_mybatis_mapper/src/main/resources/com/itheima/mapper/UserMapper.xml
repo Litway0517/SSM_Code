@@ -3,8 +3,11 @@
 
 <mapper namespace="com.itheima.mapper.UserMapper">
 
+    <!-- sql语句的抽取 -->
+    <sql id="selectUser">select * from user</sql>
+
     <select id="findByCondition" resultType="user">
-        select * from user
+        <include refid="selectUser"/>
         <!--
             <where>标签代表的是, 如果下面的众多if标签中有一个是true, 那么在上面的sql语句中拼上where查询条件, 否则不拼接
         -->
@@ -20,7 +23,7 @@
         parameterType: 这个变量是传过来的参数. 如果是集合, 写list. 如果是数组, 写array.
     -->
     <select id="findByIds" parameterType="list" resultType="user">
-        select * from user
+        <include refid="selectUser"/>
         <where>
             <!--
                 collection元素: 是方法传过来的同一类型参数值集合
