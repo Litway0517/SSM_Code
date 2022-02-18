@@ -4,7 +4,6 @@
 <mapper namespace="com.itheima.mapper.UserMapper">
 
     <select id="findByCondition" resultType="user">
-
         select * from user
         <!--
             <where>标签代表的是, 如果下面的众多if标签中有一个是true, 那么在上面的sql语句中拼上where查询条件, 否则不拼接
@@ -14,6 +13,25 @@
             <if test="username != null">and username=#{username}</if>
             <if test="password != null">and password=#{password}</if>
         </where>
+    </select>
+
+
+    <!--
+        parameterType: 这个变量是传过来的参数. 如果是集合, 写list. 如果是数组, 写array.
+    -->
+    <select id="findByIds" parameterType="list" resultType="user">
+        select * from user
+        <where>
+            <!--
+                collection元素: 是方法传过来的同一类型参数值集合
+                open元素: 可选条件的开始部分
+                close元素: 可选条件的结束部分
+                item元素: 负责去遍历数组中的每一个元素
+                separator元素: 是分隔符
+            -->
+            <foreach collection="list" open="id in(" close=")" item="id" separator=",">#{id}</foreach>
+        </where>
+
     </select>
 </mapper>
 
