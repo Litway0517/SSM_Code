@@ -9,11 +9,16 @@
         insert into user2 values(#{id},#{username},#{password},#{birthday})
     </insert>
 
-    <select id="findById" parameterType="int" resultType="com.itcast.entity.User">
+    <select id="findById" parameterType="int" resultType="user">
         <include refid="selectUser" />
         <where>
             id=#{id}
         </where>
+    </select>
+
+    <select id="findAll" resultType="user">
+        <include refid="selectUser" />
+
     </select>
 </mapper>
 
