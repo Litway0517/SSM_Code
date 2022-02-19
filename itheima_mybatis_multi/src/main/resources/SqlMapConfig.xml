@@ -7,19 +7,9 @@
 
     <!--自定义别名-->
     <typeAliases>
-        <typeAlias type="com.itcast.entity.User" alias="user" />
+        <typeAlias type="com.itheima.entity.User" alias="user" />
+        <typeAlias type="com.itheima.entity.Order" alias="order" />
     </typeAliases>
-
-    <!--
-        自定义类型转换器
-        因为JavaBean的birthday类型是 Date
-        数据库中的birthday字段类型是 bigint.
-        因此, 直接将Bean对象插入到数据库肯定报错, 需要自定义转换器.
-    -->
-    <typeHandlers>
-        <typeHandler handler="com.itcast.handler.DateHandler" />
-    </typeHandlers>
-
 
 
     <!--数据源环境-->
@@ -38,7 +28,7 @@
 
     <!--加载映射文件-->
     <mappers>
-        <mapper resource="com/itcast/mapper/UserMapper.xml" />
+        <mapper resource="com/itheima/mapper/UserMapper.xml" />
         <mapper resource="com/itheima/mapper/OrderMapper.xml" />
     </mappers>
 
