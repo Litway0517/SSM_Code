@@ -11,13 +11,31 @@ import org.junit.Test;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
+import java.util.List;
 
 public class MapperTest {
 
     @Test
+    public void test3() throws IOException {
+        InputStream resourceAsStream = Resources.getResourceAsStream("SqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        //获得MyBatis框架生成的UserMapper接口的实现类
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+
+        List<User> all = userMapper.findAll();
+        for (User user : all) {
+            System.out.println(user);
+        }
+
+        // 关闭连接
+        sqlSession.close();
+    }
+
+
+
+    @Test
     public void test2() throws IOException {
-
-
         InputStream resourceAsStream = Resources.getResourceAsStream("SqlMapConfig.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
         SqlSession sqlSession = sqlSessionFactory.openSession(true);
