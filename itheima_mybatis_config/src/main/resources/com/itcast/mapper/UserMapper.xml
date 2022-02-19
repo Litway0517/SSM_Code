@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itcast.mapper.UserMapper">
+
+    <sql id="selectUser" >select * from user2</sql>
+
+    <insert id="save" parameterType="user">
+        insert into user2 values(#{id},#{username},#{password},#{birthday})
+    </insert>
+
+    <select id="findById" parameterType="int" resultType="com.itcast.entity.User">
+        <include refid="selectUser" />
+        <where>
+            id=#{id}
+        </where>
+    </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
