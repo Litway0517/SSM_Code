@@ -3,8 +3,19 @@
 
 <mapper namespace="com.itheima.mapper.OrderMapper">
 
-    <sql id="selectUser" >select * from user2</sql>
+    <sql id="selectOrder" >
+        SELECT o.`id`,o.`ordertime` `orderTime`,o.`total`,o.`uid` `uid`,
+               u.`id` `uid`,u.`username`,u.`password`,u.`birthday`
+        FROM `order` o,`user2` u
+    </sql>
 
+    <!-- 查询所有数据 -->
+    <select id="findAll" resultType="order">
+        <include refid="selectOrder" />
+        <where>
+            u.`id`=o.`uid`
+        </where>
+    </select>
 </mapper>
 
 
