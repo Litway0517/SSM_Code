@@ -2,6 +2,8 @@ package com.itcast.mapper;
 
 import com.itcast.entity.User;
 
+import java.util.List;
+
 /**
  * 用户映射器
  *
@@ -24,6 +26,9 @@ public interface UserMapper {
      * @return {@link User}
      */
     public User findById(Integer id);
+
+
+    public List<User> findAll();
 
 
 }
