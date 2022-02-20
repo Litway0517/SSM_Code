@@ -15,10 +15,10 @@
         <id column="oid" property="id" />
         <result column="orderTime" property="orderTime" />
         <result column="total" property="total" />
-        <result column="uid" property="user.id" />
 
         <!-- 第一种映射方式: 使用当前实体(order)的成员变量(user)的成员变量(例如id, username, password) -->
-        <!--<result column="username" property="user.username" />
+        <!--<result column="uid" property="user.id" />
+        <result column="username" property="user.username" />
         <result column="password" property="user.password" />
         <result column="birthday" property="user.birthday" />-->
 
