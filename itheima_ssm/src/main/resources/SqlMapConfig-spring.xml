@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <typeAliases>
+        <!--<typeAlias type="com.itheima.entity.Account" alias="account" />-->
+        <!--
+            自动扫包: name属性用来标注 自动扫描的包路径.
+            自动扫包将会配置两个别名: 以上面的 com.itheima.entity.Account 举例, 得到的将会是Account 和 account两个. 都可以用.
+        -->
+        <package name="com.itheima.entity"/>
+    </typeAliases>
+
+
+
+
+
+</configuration>

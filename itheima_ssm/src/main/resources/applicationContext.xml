@@ -13,6 +13,39 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
+    <!-- 加载数据源配置文件 -->
+    <context:property-placeholder location="classpath:jdbc.properties" />
+
+    <!--
+        配置数据源
+        druid连接池的参数 和 C3P0数据源的参数名字不一样.
+    -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" >
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+    </bean>
+
+    <!--
+        配置sqlSession工厂.
+        但是, SqlSession是一个接口, 而接口是不能配置到spring容器的核心配置文件的, 那样会报错.
+        所以 mybatis-spring 这个依赖, 提供了一个Bean能够配置, 如下:
+    -->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean" >
+        <!-- 配置数据源 -->
+        <property name="dataSource" ref="dataSource" />
+        <!-- 同样的, 仍然需要加载mybatis的核心配置文件 -->
+        <property name="configLocation" value="classpath:SqlMapConfig-spring.xml" />
+    </bean>
+
+
+    <!-- 扫描mapper所在的包, 创建动态代理对象(这件事情spring也能够做) -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" >
+        <!-- 扫描mapper映射文件. 实际上就是加载到内存 -->
+        <property name="basePackage" value="com.itheima.mapper" />
+    </bean>
+
 
 
 
