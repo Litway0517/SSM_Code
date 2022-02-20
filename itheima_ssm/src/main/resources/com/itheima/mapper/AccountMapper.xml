@@ -3,9 +3,18 @@
 
 <mapper namespace="com.itheima.mapper.AccountMapper">
 
+    <sql id="selectAccount">
+        select a.`id` `id`,a.`name` `name`,a.`money` `money`
+        from `account` a
+    </sql>
 
+    <insert id="save" parameterType="account" >
+        insert into `account` values(#{id},#{name},#{money})
+    </insert>
 
-
+    <select id="findAll" resultType="account" >
+        <include refid="selectAccount" />
+    </select>
 
 
 

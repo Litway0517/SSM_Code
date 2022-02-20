@@ -15,7 +15,7 @@ public interface AccountMapper {
     /**
      * 保存
      */
-    public void save();
+    public void save(Account account);
 
     /**
      * 找到所有
