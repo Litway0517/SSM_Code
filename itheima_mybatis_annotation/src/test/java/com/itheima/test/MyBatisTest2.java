@@ -36,6 +36,15 @@ public class MyBatisTest2 {
 
     }
 
+    @Test
+    public void testFindAll2() {
+        List<Order> orderList = orderMapper.findAll2();
+        for (Order order : orderList) {
+            System.out.println(order);
+        }
+
+    }
+
 
 
 

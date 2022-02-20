@@ -1,6 +1,8 @@
 package com.itheima.mapper;
 
 import com.itheima.entity.Order;
+import com.itheima.entity.User;
+import org.apache.ibatis.annotations.One;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -33,6 +35,24 @@ public interface OrderMapper {
     })
     public List<Order> findAll();
 
+
+
+    @Select(
+            "SELECT o.`id` `oid`,o.`ordertime` `orderTime`,o.`total` `total`,o.`uid` `uid` FROM `order` o"
+    )
+    @Results({
+            @Result(column = "oid", property = "id"),
+            @Result(column = "orderTime", property = "orderTime"),
+            @Result(column = "total", property = ""),
+            @Result(
+                    property = "user",  // 要封装的属性名称
+                    column = "uid",     // 根据order表中哪个字段去查询user表的数据
+                    javaType = User.class, // 查询到的结果类型
+                    // select属性表示: 查询哪个接口中的方法获得数据. 实际上是引用UserMapper中的方法
+                    one = @One(select = "com.itheima.mapper.UserMapper.findById")
+            )
+    })
+    public List<Order> findAll2();
 
 
 }
