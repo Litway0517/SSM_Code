@@ -2,27 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.itheima.mapper.UserMapper">
-    <sql id="selectUser">
+    <!--<sql id="selectUser">
         select * from `user3`
     </sql>
 
 
-    <!--插入方法 -->
+    &lt;!&ndash;插入方法 &ndash;&gt;
     <insert id="save" parameterType="user">
         insert into `user3` values(#{id},#{username},#{password},#{birthday})
     </insert>
 
-    <!-- 更新方法 -->
+    &lt;!&ndash; 更新方法 &ndash;&gt;
     <update id="update" parameterType="user">
         update `user3` set username=#{username},password=#{password},birthday=#{birthday} where id=#{id}
     </update>
 
-    <!-- 删除方法 -->
+    &lt;!&ndash; 删除方法 &ndash;&gt;
     <delete id="delete" parameterType="int">
         delete from `user3` where id=#{id}
     </delete>
 
-    <!-- 根据id查询 -->
+    &lt;!&ndash; 根据id查询 &ndash;&gt;
     <select id="findById" parameterType="int" resultType="user">
         <include refid="selectUser" />
         <where>
@@ -30,10 +30,10 @@
         </where>
     </select>
 
-    <!-- 查询所有 -->
+    &lt;!&ndash; 查询所有 &ndash;&gt;
     <select id="findAll" resultType="user">
         <include refid="selectUser" />
-    </select>
+    </select>-->
 
 
 </mapper>

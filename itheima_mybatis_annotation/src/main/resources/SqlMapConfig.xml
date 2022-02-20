@@ -26,9 +26,9 @@
 
     <!-- 开启开关: 加载映射关系 -->
     <mappers>
-        <mapper resource="com/itheima/mapper/UserMapper.xml" />
-        <!-- 指定接口所在的包, 回去扫描这个包, 当然也就扫描了这个接口中的注解 -->
-<!--        <package name="com.itheima.mapper"/>-->
+<!--        <mapper resource="com/itheima/mapper/UserMapper.xml" />-->
+        <!-- 指定接口所在的包, 会去扫描这个包, 当然也就扫描了这个接口中的注解 -->
+        <package name="com.itheima.mapper"/>
     </mappers>
 
 </configuration>
