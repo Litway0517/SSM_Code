@@ -55,4 +55,10 @@ public interface OrderMapper {
     public List<Order> findAll2();
 
 
+    // 增加这条查询语句, 是为了供User进行调用.
+    @Select("select * from `order` where uid=#{uid}")
+    public List<Order> findByUid();
+
+
+
 }
