@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
-public class MyBatisTest2 {
+public class MyBatis2Test {
 
     private OrderMapper orderMapper;
 

@@ -1,6 +1,7 @@
 package com.itheima.entity;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * 用户
@@ -27,6 +28,11 @@ public class User {
      * 生日
      */
     private Date birthday;
+
+    /**
+     * 订单列表
+     */// 描述该用户的订单信息(可能有多个订单)
+    private List<Order> orderList;
 
 
     /**
@@ -121,6 +127,24 @@ public class User {
     }
 
     /**
+     * 得到订单列表
+     *
+     * @return {@link List}<{@link Order}>
+     */
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+
+    /**
+     * 设置订单列表
+     *
+     * @param orderList 订单列表
+     */
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
+
+    /**
      * 字符串
      *
      * @return {@link String}
@@ -132,6 +156,7 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", birthday=" + birthday +
+                ", orderList=" + orderList +
                 '}';
     }
 }
