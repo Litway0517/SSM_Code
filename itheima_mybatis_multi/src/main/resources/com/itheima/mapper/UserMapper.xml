@@ -2,21 +2,55 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.itheima.mapper.UserMapper">
+    <resultMap id="userOrderMap" type="user">
+        <id column="uid" property="id" />
+        <result column="username" property="username" />
+        <result column="password" property="password" />
+        <result column="birthday" property="birthday" />
 
-    <sql id="selectUser" >select * from user2</sql>
+        <!--
+            user实体中有一个成员变量orderList是集合类型, 下面配置
+            property: 集合的名称(orderList)
+            ofType: 集合中的数据类型是什么(Order)
+        -->
+        <collection property="orderList" ofType="order">
+            <id column="oid" property="id" />
+            <result column="orderTime" property="orderTime" />
+            <result column="total" property="total" />
+        </collection>
+    </resultMap>
 
+    <resultMap id="userRoleMap" type="user">
+        <id column="uid" property="id" />
+        <result column="username" property="username" />
+        <result column="password" property="password" />
+        <result column="birthday" property="birthday" />
+
+        <collection property="roleList" ofType="role">
+            <id column="rid" property="id" />
+            <result column="roleName" property="roleName" />
+            <result column="roleDesc" property="roleDesc" />
+        </collection>
+    </resultMap>
+
+    <sql id="selectUser" >
+        SELECT u.`id` `uid`,u.`username` `username`,u.`password` `password`,u.`birthday` `birthday`,
+               o.`id` `oid`,o.`ordertime` `orderTime`,o.`total` `total`,o.`uid` `uid`
+        FROM `order` o,`user3` u
+    </sql>
+
+
+    <select id="findAll" resultMap="userOrderMap">
+        <include refid="selectUser" />
+        <where>
+            u.`id`=o.`uid`
+        </where>
+    </select>
+
+    <select id="findAllUserAndRole" resultMap="userRoleMap">
+        SELECT u.`id` `uid`,u.`username` `username`,u.`password` `password`,u.`birthday` `birthday`,
+               r.`id` `rid`,r.`roleName` `roleName`,r.`roleDesc` `roleDesc`
+        FROM `sys_user` u,`sys_user_role` ur,`sys_role` r
+        WHERE u.`id` = ur.`userId` AND ur.`roleId` = r.`id`
+    </select>
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
