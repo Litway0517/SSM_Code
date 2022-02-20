@@ -31,3 +31,5 @@
 >   13- spring_mybatis_mapper
 > 
 >   14- mybatis_config
+> 
+>   15- mybatis_multi
