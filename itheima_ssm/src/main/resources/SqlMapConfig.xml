@@ -2,6 +2,40 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+    <!-- 加载数据源的配置文件 -->
+    <properties resource="jdbc.properties" />
+
+    <typeAliases>
+        <!--<typeAlias type="com.itheima.entity.Account" alias="account" />-->
+        <!--
+            自动扫包: name属性用来标注 自动扫描的包路径.
+            自动扫包将会配置两个别名: 以上面的 com.itheima.entity.Account 举例, 得到的将会是Account 和 account两个. 都可以用.
+        -->
+        <package name="com.itheima.entity"/>
+    </typeAliases>
+
+    <!-- 配置数据源的环境 -->
+    <environments default="">
+        <environment id="">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}" />
+                <property name="url" value="${jdbc.url}" />
+                <property name="username" value="${jdbc.username}" />
+                <property name="password" value="${jdbc.password}" />
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 加载映射文件 -->
+    <mappers>
+        <!--<mapper resource="com/itheima/mapper/AccountMapper.xml" />-->
+        <!--
+            自动加载映射: 指定包下面的所有映射文件都加载
+            自动注册标签不能和mapper标签同时使用.
+        -->
+        <package name="com.itheima.mapper" />
+    </mappers>
 
 
 
