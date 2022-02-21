@@ -69,4 +69,26 @@ public interface UserMapper {
     public List<User> findUserAndOrderAll();
 
 
+    @Select("select * from `sys_user`")
+    @Results({
+            // 标识查询到的id这个结果列是主键列
+            @Result(id = true, column = "id", property = "id"),
+            @Result(column = "username", property = "username"),
+            @Result(column = "password", property = "password"),
+            @Result(column = "birthday", property = "birthday"),
+            @Result(
+                    /*
+                        还需要查询User实体类中的List<Role>这个成员变量
+                        根据这个id去com.itheima.mapper.RoleMapper.findRoleByUId方法中查询
+                     */
+                    column = "roleList",
+                    property = "id",
+                    javaType = List.class,
+                    many = @Many(select = "com.itheima.mapper.RoleMapper.findByUid")
+            )
+        }
+    )
+    public List<User> findUserAndRoleAll();
+
+
 }
