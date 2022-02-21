@@ -11,10 +11,9 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Date;
 import java.util.List;
 
-public class MyBatisTest {
+public class MyBatis4Test {
 
     private UserMapper userMapper;
 
@@ -29,42 +28,15 @@ public class MyBatisTest {
 
 
     @Test
-    public void testSave() {
-        User user = new User();
-        user.setUsername("tom");
-        user.setPassword("123");
-        user.setBirthday(new Date());
-        userMapper.save(user);
-    }
-
-    @Test
-    public void testUpdate() {
-        User user = new User();
-        user.setId(14);
-        user.setUsername("lihua");
-        user.setPassword("123");
-        user.setBirthday(new Date());
-        userMapper.update(user);
-    }
-
-    @Test
-    public void testDelete() {
-        userMapper.delete(13);
-    }
-
-    @Test
-    public void testFindById() {
-        User user = userMapper.findById(10);
-        System.out.println(user);
-    }
-
-    @Test
-    public void testFindAll() {
-        List<User> all = userMapper.findAll();
-        for (User user : all) {
+    public void test() {
+        List<User> userAndRoleAll = userMapper.findUserAndRoleAll();
+        for (User user : userAndRoleAll) {
             System.out.println(user);
         }
     }
+
+
+
 
 
 
