@@ -69,6 +69,7 @@
         <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.itheima.service.impl.*.*(..))" />
     </aop:config>
 
+    <!-- 5.0.5.RELEASE spring容器默认使用的是JDK代理, 所以controller层在自动装配时出现了错误. 需要该标签来解决 -->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 
 
