@@ -31,8 +31,16 @@ public class User {
 
     /**
      * 订单列表
-     */// 描述该用户的订单信息(可能有多个订单)
+     */
+    // 描述该用户的订单信息(可能有多个订单)
     private List<Order> orderList;
+
+
+    /**
+     * 角色列表
+     */
+    //  描述该用户的角色信息(可能有多个角色)
+    private List<Role> roleList;
 
 
     /**
@@ -145,6 +153,24 @@ public class User {
     }
 
     /**
+     * 获取角色列表
+     *
+     * @return {@link List}<{@link Role}>
+     */
+    public List<Role> getRoleList() {
+        return roleList;
+    }
+
+    /**
+     * 设置角色列表
+     *
+     * @param roleList 角色列表
+     */
+    public void setRoleList(List<Role> roleList) {
+        this.roleList = roleList;
+    }
+
+    /**
      * 字符串
      *
      * @return {@link String}
@@ -157,6 +183,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", birthday=" + birthday +
                 ", orderList=" + orderList +
+                ", roleList=" + roleList +
                 '}';
     }
 }
