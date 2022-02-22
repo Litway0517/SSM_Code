@@ -32,7 +32,10 @@
             -->
             <param-value>classpath:spring-mvc.xml</param-value>
         </init-param>
-        <!-- 表示第一次即创建改类 -->
+        <!--
+            表示第一次即创建改类
+            将DispatcherServlet的初始化时间提前到服务器启动时. 不然第一次访问servlet时, 将会大量加载配置,非常慢.
+        -->
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
