@@ -27,6 +27,9 @@
         <!-- 设置初始化参数传递给  DispatcherServlet 类(注意这个初始化参数的位置有坑 不能随便放 放在servlet-class下面) -->
         <init-param>
             <param-name>contextConfigLocation</param-name>
+            <!--
+                maven的classpath路径指的是: src/main/resources/...文件
+            -->
             <param-value>classpath:spring-mvc.xml</param-value>
         </init-param>
         <!-- 表示第一次即创建改类 -->
