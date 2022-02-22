@@ -34,7 +34,17 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>DispatcherServlet</servlet-name>
-        <!-- 所有前端的请求地址 都必须先经过DispatcherServlet 不然框架就白用了 -->
+        <!--
+            所有前端的请求地址 都必须先经过DispatcherServlet 不然框架就白用了
+            /所匹配的请求可以是/login或.html或.js或.css方式的请求路径
+            但是/不能匹配.jsp请求路径的请求
+
+            / 就被翻译为了, 除.jsp类型的路由不进行处理之外, 其他的均进行处理.
+                如果, 连同 .jsp请求一块处理, 那么前端就看不到对应的界面了, 比如用户想要跳转到登陆界面,
+                反而被DispatcherServlet进行处理了. 而且jsp的本质是一个servlet. 这样会有其他的专门的servlet处理jsp界面,
+                并不需要DispatcherServlet来处理jsp界面.
+            /* 就被翻译为了, 处理所有路由, 包括.jsp类型的.
+        -->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
