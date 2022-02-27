@@ -32,6 +32,7 @@ public class MapperTest {
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 
         // 设置分页数据. 当前页码号+每一页显示的条数. 即, 第五页, 每页三条 -> 最后得到的是13, 14, 15这三条数据
+        // (PageNo - 1) * PageSize + 1  (页码号 - 1) * 页码大小 + 1
         PageHelper.startPage(3, 3);
 
         List<User> userList = userMapper.findAll();

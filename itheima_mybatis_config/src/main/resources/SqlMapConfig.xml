@@ -21,6 +21,13 @@
     </typeHandlers>
 
 
+    <!-- 配置分页助手插件 告诉mybatis框架需要使用的插件 -->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <property name="dialect" value="mysql" />
+        </plugin>
+    </plugins>
+
 
     <!--数据源环境-->
     <environments default="development">
