@@ -35,7 +35,7 @@ public class MultiTest {
 
     }
 
-    // 一对多
+    // 一对多. 一个用户可能会有多个订单.
     @Test
     public void test2() throws IOException {
         InputStream resourceAsStream = Resources.getResourceAsStream("SqlMapConfig.xml");
@@ -53,7 +53,7 @@ public class MultiTest {
     }
 
 
-    // 一对一
+    // 一对一 -> 一个订单仅仅是一个用户的.
     @Test
     public void test() throws IOException {
         InputStream resourceAsStream = Resources.getResourceAsStream("SqlMapConfig.xml");
