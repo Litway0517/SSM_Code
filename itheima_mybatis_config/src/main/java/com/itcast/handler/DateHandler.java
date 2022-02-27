@@ -31,7 +31,7 @@ public class DateHandler extends BaseTypeHandler<Date> {
     }
 
 
-    // 将mysql数据库类型 转换为javaBean类型
+    // 将mysql数据库类型 转换为JavaBean类型. 根据字段名称去结果其中查询
     public Date getNullableResult(ResultSet resultSet, int i) throws SQLException {
         // 根据字段名称去结果其中查询
         long aLong = resultSet.getLong(i);
@@ -39,7 +39,7 @@ public class DateHandler extends BaseTypeHandler<Date> {
     }
 
 
-    // 将mysql数据库类型 转换为javaBean类型
+    // 将mysql数据库类型 转换为JavaBean类型
     public Date getNullableResult(CallableStatement callableStatement, int i) throws SQLException {
         // 根据字段名称去结果其中查询
         long aLong = callableStatement.getLong(i);
