@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class MyBatisTest {
 
-
+    // 根据id查找用户
     @Test
     public void findById() throws IOException {
         // 获得核心配置文件
@@ -40,7 +40,7 @@ public class MyBatisTest {
         sqlSession.close();
     }
 
-
+    // 根据id删除用户
     @Test
     public void delete() throws IOException {
         // 获得核心配置文件
@@ -65,7 +65,7 @@ public class MyBatisTest {
     }
 
 
-
+    // 更新用户, 需要传入参数user
     @Test
     public void update() throws IOException {
         User user = new User();
@@ -95,7 +95,7 @@ public class MyBatisTest {
     }
 
 
-
+    // 插入用户, 传入一个user对象
     @Test
     public void save() throws IOException {
         User user = new User();
@@ -123,7 +123,7 @@ public class MyBatisTest {
         sqlSession.close();
     }
 
-
+    // 查询所有用户信息
     @Test
     public void findAll() throws IOException {
         // 获得核心配置文件
