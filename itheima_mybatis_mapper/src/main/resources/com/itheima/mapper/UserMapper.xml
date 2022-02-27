@@ -10,11 +10,12 @@
         <include refid="selectUser"/>
         <!--
             <where>标签代表的是, 如果下面的众多if标签中有一个是true, 那么在上面的sql语句中拼上where查询条件, 否则不拼接
+            <if test="xxx">str</if> 动态查询标签. 当xxx表达式为真的时候, 就将if标签中的str拼接到SQL语句中
         -->
         <where>
-            <if test="id != 0">and id=#{id}</if>
-            <if test="username != null">and username=#{username}</if>
-            <if test="password != null">and password=#{password}</if>
+            <if test="id != 0 and id != ''">and id=#{id}</if>
+            <if test="username != null and username != ''">and username=#{username}</if>
+            <if test="password != null and password != ''">and password=#{password}</if>
         </where>
     </select>
 
