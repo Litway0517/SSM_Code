@@ -11,7 +11,7 @@
         <typeAlias type="com.itheima.entity.User" alias="user" />
     </typeAliases>
 
-
+    <!-- 不要忘了配置default数据源 否则报错 -->
     <environments default="develop">
         <environment id="develop">
             <transactionManager type="JDBC" />
