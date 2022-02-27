@@ -11,6 +11,10 @@
             property: 这是Java实体类的成员变量名称
 
             id标签是查询出来的结果的主键映射. 即 结果中的主键和JavaBean主键映射
+
+            column oid: 这个是查询出来的列名. 就是SQL语句中起的别名
+            property id: 这个id是resultMap中type类型order的成员变量名.
+                指定查询出来的结果给指定的成员变量
         -->
         <id column="oid" property="id" />
         <result column="orderTime" property="orderTime" />
