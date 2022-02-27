@@ -32,7 +32,7 @@
 > 
 >   14- mybatis_config
 > 
->   15- mybatis_multi
+>   15- mybatis_multiple
 > 
 >   16- mybatis_annotation
 > 
