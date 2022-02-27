@@ -15,6 +15,12 @@ import java.io.InputStream;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * 映射器测试
+ *
+ * @author DELL_
+ * @date 2022/02/27
+ */
 public class MapperTest {
 
     @Test
@@ -97,7 +103,7 @@ public class MapperTest {
 
             报错内容: Data truncated for column 'birthday' at row 1
 
-            因此需要自定义类型转换器
+            因此需要自定义类型转换器DateHandler(继承自BaseTypeHandler<Date>)
          */
         userMapper.save(user);
 
