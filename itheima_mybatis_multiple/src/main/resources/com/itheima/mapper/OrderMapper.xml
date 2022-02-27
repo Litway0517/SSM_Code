@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itheima.mapper.OrderMapper">
+
+    <!-- type的类型实际上需要些全限名 但是在核心配置文件中已经起了别名 这里直接引用 -->
+    <resultMap id="orderMap" type="order">
+        <!--
+            手动指定字段与实体属性之间的映射关系
+            column: sql语句中, 查询出来的结果字段名称(起了别名就写上别名. 没有别名就直接写数据库查出来的默认字段)
+            property: 这是Java实体类的成员变量名称
+
+            id标签是查询出来的结果的主键映射. 即 结果中的主键和JavaBean主键映射
+        -->
+        <id column="oid" property="id" />
+        <result column="orderTime" property="orderTime" />
+        <result column="total" property="total" />
+
+        <!-- 第一种映射方式: 使用当前实体(order)的成员变量(user)的成员变量(例如id, username, password) -->
+        <!--<result column="uid" property="user.id" />
+        <result column="username" property="user.username" />
+        <result column="password" property="user.password" />
+        <result column="birthday" property="user.birthday" />-->
+
+        <!--
+            第二种映射封装 -> 关联的实体类名称. 关联的实体类类型
+            property: 当前实体(Order)中的属性名称(private User user)
+            javaType: 当前实体(Order)中的属性的类型(User). 小写user表示的是起了别名
+        -->
+        <association property="user" javaType="user">
+            <!-- id标签是主键标签 -->
+            <id column="uid" property="id" />
+            <result column="username" property="username" />
+            <result column="password" property="password" />
+            <result column="birthday" property="birthday" />
+        </association>
+    </resultMap>
+
+
+    <sql id="selectOrder" >
+        SELECT o.`id` `oid`,o.`ordertime` `orderTime`,o.`total` `total`,o.`uid` `uid`,
+               u.`id` `uid`,u.`username` `username`,u.`password` `password`,u.`birthday` `birthday`
+        FROM `order` o,`user3` u
+    </sql>
+
+    <!-- 查询所有数据 -->
+    <select id="findAll" resultMap="orderMap">
+        <include refid="selectOrder" />
+        <where>
+            u.`id`=o.`uid`
+        </where>
+    </select>
+</mapper>
