@@ -18,6 +18,10 @@
             <result column="orderTime" property="orderTime" />
             <result column="total" property="total" />
         </collection>
+        <!--
+            如果 一个实体对象中 封装了仅仅另一个实体对象(如 A类中有一个B类作为成员变量), 那么使用<association>标签引用
+            如果 一个实体对象中 封装了另一个实体对象为列表(如 A类中有一个集合, 该集合泛型为B实体类), 那么用<collection>标签引用
+        -->
     </resultMap>
 
     <resultMap id="userRoleMap" type="user">
