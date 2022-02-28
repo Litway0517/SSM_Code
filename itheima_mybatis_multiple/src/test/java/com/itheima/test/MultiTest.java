@@ -17,7 +17,7 @@ import java.util.List;
 public class MultiTest {
 
 
-    // 多对多
+    // 多对多 -> 一个用户可能有多个角色. 同时一个角色也能够被多个用户所标识.
     @Test
     public void test3() throws IOException {
         InputStream resourceAsStream = Resources.getResourceAsStream("SqlMapConfig.xml");
