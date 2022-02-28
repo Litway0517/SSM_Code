@@ -24,15 +24,15 @@
 >
 >   10- spring_tx_annotation(Transaction anno)
 > 
->   11- spring_mybatis_quick
+>   _11- spring_mybatis_quick_
 > 
->   12- spring_mybatis_dao
+>   _12- spring_mybatis_dao_
 > 
->   13- spring_mybatis_mapper
+>   _13- spring_mybatis_mapper_
 > 
->   14- mybatis_config
+>   _14- mybatis_config_
 > 
->   15- mybatis_multiple
+>   _15- mybatis_multiple_
 > 
 >   16- mybatis_annotation
 > 
