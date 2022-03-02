@@ -18,18 +18,19 @@
 
     <!-- 配置织入: 告诉spring. 哪些切点(业务方法)需要被增强(增加通知). 增强的类型是什么样(前置 OR 后置) -->
     <aop:config>
-        <!-- 这个标签用来声明 切面. 引用声明myAspect作为切面类 -->
+        <!-- 这个标签用来声明 切面. ref属性用作引用声明myAspect作为切面类 -->
         <aop:aspect ref="myAspect" >
             <!--
-                aspect是切面: 由 切点 + 通知 构成
-                method元素: 用来标识通知. 通知就是增强方法.
+                aop:aspect是切面: 由 切点 + 通知 构成. 通知类已经在ref属性中表明了.
+
+                method元素: 用来标识通知名称. 通知就是增强方法.
                 pointcut元素: 用来标识被增强的方法. 就是切点. 增强proxy包下面的Target类的save()方法
                 aop:before: 这个就已经指明了 通知 的类型. 即前置增强
             -->
             <!-- 配置前置增强 -->
             <aop:before method="before" pointcut="execution(public void com.itheima.proxy.aop.Target.save())"/>
 
-            <!-- 配置后置增强 -->
+            <!-- 配置后置增强(目标对象方法执行完毕之后就执行配置的相关通知) -->
             <aop:after-returning method="afterReturning" pointcut="execution(void com.itheima.proxy.aop.Target.save())" />
 
             <!-- 配置环绕增强 -->
@@ -40,8 +41,6 @@
 
             <!-- 最终增强: 无论异常不异常均执行 -->
             <aop:after method="after" pointcut="execution(void com.itheima.proxy.aop..*.*(..))" />
-
-
         </aop:aspect>
     </aop:config>
 
