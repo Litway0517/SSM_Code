@@ -9,14 +9,22 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 ">
 
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/spring_test"/>
-        <property name="user" value="root"/>
+    <!--
+        数据源注入给JdbcTemplate模板, JdbcTemplate模板注入给AccountDaoImpl.
+        AccountDaoImpl再注给AccountServiceImpl. 这里面都是使用的setter方式.
+    -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/spring_test"/>
+        <property name="username" value="root"/>
         <property name="password" value="root"/>
     </bean>
 
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <!--
+            setter方式为JdbcTemplate注入dataSource成员变量
+            而JdbcTemplate又是为了注入给AccountDaoImpl
+        -->
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
@@ -54,10 +62,10 @@
                 3- 事务的超时行为                   timeout: 超时时间
                 4- 只读?                          read-only: 仅仅读取
         -->
-        <tx:attributes>
+        <tx:attributes>     <!-- 配置多个事务属性 -->
             <!--
                 tx:method标签: 对不同的方法进行不同的事务管理. 配置增强该方法时的事务参数.
-                为方法指定相关参数. 参数就是上面的那些. *表示所有方法
+                为方法指定相关参数. 参数就是上面的哪些. *表示所有方法
             -->
             <tx:method name="transfer" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
             <tx:method name="*" isolation="DEFAULT" propagation="REQUIRED" timeout="-1" read-only="false"/>
