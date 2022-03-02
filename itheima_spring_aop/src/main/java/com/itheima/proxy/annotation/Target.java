@@ -3,6 +3,7 @@ package com.itheima.proxy.annotation;
 
 import org.springframework.stereotype.Component;
 
+// 将目标类的加载管理事项交给spring容器
 @Component("target")
 public class Target implements TargetInterface {
 
