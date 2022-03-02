@@ -12,7 +12,10 @@
     <!-- 组件扫描 -->
     <context:component-scan base-package="com.itheima.proxy.annotation" />
 
-    <!-- aop自动代理 -->
+    <!--
+        aop自动代理
+        有时候可能会报错, 那么加上属性: proxy-target-class="true"
+    -->
     <aop:aspectj-autoproxy />
 
 
