@@ -2,6 +2,15 @@ package com.itheima.proxy.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 
+
+/**
+ * 通知
+ *
+ * @author DELL_
+ * @date 2022/03/02
+ */
+
+// 通知类
 public class MyAspect {
 
     public void before() {
