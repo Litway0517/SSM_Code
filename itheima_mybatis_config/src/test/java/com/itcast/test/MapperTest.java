@@ -62,6 +62,8 @@ public class MapperTest {
         System.out.println("是否是第一页: " + userPageInfo.isIsFirstPage());
         System.out.println("是否是最后一页: " + userPageInfo.isIsLastPage());
 
+        System.out.println("直接输出PageInfo: " + userPageInfo);
+
 
         // 关闭连接
         sqlSession.close();
