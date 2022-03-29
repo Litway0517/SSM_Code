@@ -15,7 +15,7 @@
     <script type="text/javascript">
 
         // 准备数据
-        let userList = new Array();
+        let userList = [];
         userList.push({username:"zhangsan", age:95});
         userList.push({username: "lisi", age: 99});
 
