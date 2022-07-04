@@ -133,10 +133,12 @@ public class UserController {
 
     /*
         @RequestParam注解的使用
-            - 当方法为 -> getReqParams(String username) 时, 前端的请求URL地址必须有参数username才能够注入到这个方法的形参中.
+            URL中的参数名和接口方法参数名一致时, 能够自动接收. 但是不一致时需要使用RequestParam进行手动映射.
+
+            - 当方法为 -> getReqParams(String username) 时, 前端的请求体地址URL中必须有参数username才能够注入到这个方法的形参中.
               如果前端的URL地址写错了参数 username 为 name, 那么该方法的形参username就收不到参数值.
 
-          此时可以使用@RequestParam注解结局.
+          此时可以使用@RequestParam注解解决.
             - @RequestParam(value = "name")表示显示的绑定 前端URL地址中的name参数的值就是映射给此方法的username的.
               所以此方法的形参就能够接收到前端的参数值了.
 
